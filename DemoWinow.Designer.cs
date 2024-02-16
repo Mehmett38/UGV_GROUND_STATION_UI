@@ -36,9 +36,8 @@
             this.pictureBoxScale = new System.Windows.Forms.PictureBox();
             this.pictureBoxClose = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.gMapControl = new GMap.NET.WindowsForms.GMapControl();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.airSpeedIndicatorInstrumentControl1 = new AvionicsInstrumentControlDemo.AirSpeedIndicatorInstrumentControl();
             this.headingIndicatorInstrumentControl1 = new AvionicsInstrumentControlDemo.HeadingIndicatorInstrumentControl();
             this.turnCoordinatorInstrumentControl1 = new AvionicsInstrumentControlDemo.TurnCoordinatorInstrumentControl();
@@ -49,7 +48,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxScale)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             this.panel2.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -138,42 +136,23 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(342, 40);
+            this.panel2.Controls.Add(this.gMapControl);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(342, 239);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1017, 791);
+            this.panel2.Size = new System.Drawing.Size(1401, 592);
             this.panel2.TabIndex = 5;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Blue;
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(1359, 40);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(384, 791);
-            this.panel3.TabIndex = 6;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.gMapControl);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 197);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1017, 594);
-            this.panel4.TabIndex = 0;
             // 
             // gMapControl
             // 
             this.gMapControl.Bearing = 0F;
             this.gMapControl.CanDragMap = true;
-            this.gMapControl.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gMapControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gMapControl.EmptyTileColor = System.Drawing.Color.Navy;
             this.gMapControl.GrayScaleMode = false;
             this.gMapControl.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
             this.gMapControl.LevelsKeepInMemmory = 5;
-            this.gMapControl.Location = new System.Drawing.Point(0, 21);
+            this.gMapControl.Location = new System.Drawing.Point(0, 0);
             this.gMapControl.MarkersEnabled = true;
             this.gMapControl.MaxZoom = 2;
             this.gMapControl.MinZoom = 2;
@@ -186,9 +165,18 @@
             this.gMapControl.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.gMapControl.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gMapControl.ShowTileGridLines = false;
-            this.gMapControl.Size = new System.Drawing.Size(1017, 573);
+            this.gMapControl.Size = new System.Drawing.Size(1401, 592);
             this.gMapControl.TabIndex = 0;
             this.gMapControl.Zoom = 0D;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel3.Location = new System.Drawing.Point(342, 40);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(823, 199);
+            this.panel3.TabIndex = 6;
             // 
             // airSpeedIndicatorInstrumentControl1
             // 
@@ -244,7 +232,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxScale)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
             this.panel2.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -262,9 +249,8 @@
         private HeadingIndicatorInstrumentControl headingIndicatorInstrumentControl1;
         private AirSpeedIndicatorInstrumentControl airSpeedIndicatorInstrumentControl1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
         private GMap.NET.WindowsForms.GMapControl gMapControl;
+        private System.Windows.Forms.Panel panel3;
     }
 }
 
