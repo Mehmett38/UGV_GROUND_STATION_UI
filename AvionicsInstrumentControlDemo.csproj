@@ -178,9 +178,6 @@
     <None Include="Resources\TurnCoordinator_Background.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\TurnCoordinatorAircraft.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\TurnCoordinatorBall.bmp" />
   </ItemGroup>
   <ItemGroup>
@@ -191,6 +188,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AvionicsInstrumentIco.ico" />
+    <Content Include="Resources\TurnCoordinatorAircraft.bmp" />
     <None Include="Resources\minimizeIcon.png" />
     <None Include="Resources\closeIcon.png" />
     <None Include="Resources\minizeIcon.png" />

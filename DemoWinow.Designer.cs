@@ -38,7 +38,6 @@
             this.pictureBoxClose = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.attitudeIndicatorInstrumentControl1 = new AvionicsInstrumentControlDemo.AttitudeIndicatorInstrumentControl();
-            this.altimeterInstrumentControl1 = new AvionicsInstrumentControlDemo.AltimeterInstrumentControl();
             this.panel1.SuspendLayout();
             this.panelUp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinimize)).BeginInit();
@@ -76,7 +75,6 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.panel1.Controls.Add(this.attitudeIndicatorInstrumentControl1);
-            this.panel1.Controls.Add(this.altimeterInstrumentControl1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 40);
             this.panel1.Name = "panel1";
@@ -170,14 +168,6 @@
             this.attitudeIndicatorInstrumentControl1.TabIndex = 6;
             this.attitudeIndicatorInstrumentControl1.Text = "attitudeIndicatorInstrumentControl1";
             // 
-            // altimeterInstrumentControl1
-            // 
-            this.altimeterInstrumentControl1.Location = new System.Drawing.Point(38, 336);
-            this.altimeterInstrumentControl1.Name = "altimeterInstrumentControl1";
-            this.altimeterInstrumentControl1.Size = new System.Drawing.Size(199, 187);
-            this.altimeterInstrumentControl1.TabIndex = 5;
-            this.altimeterInstrumentControl1.Text = "altimeterInstrumentControl1";
-            // 
             // DemoWinow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -213,7 +203,6 @@
         private System.Windows.Forms.PictureBox pictureBoxScale;
         private System.Windows.Forms.Panel panelUp;
         private System.Windows.Forms.PictureBox pictureBoxMinimize;
-        private AltimeterInstrumentControl altimeterInstrumentControl1;
         private System.Windows.Forms.Panel panel2;
         private AttitudeIndicatorInstrumentControl attitudeIndicatorInstrumentControl1;
     }
