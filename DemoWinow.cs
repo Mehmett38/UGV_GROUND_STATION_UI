@@ -23,6 +23,7 @@ namespace AvionicsInstrumentControlDemo
 {
     public partial class DemoWinow : Form
     {
+        SerialCom serialComForm;
         MouseEventArgs mouseDownLocation;
 
         public DemoWinow()
@@ -36,7 +37,8 @@ namespace AvionicsInstrumentControlDemo
             gMapControl.MaxZoom = 100;
             gMapControl.Zoom = 8;
             gMapControl.Position = new PointLatLng(38.7, 35.55);
-
+            
+            serialComForm = new SerialCom();
         }
 
         private void clickEvent(object sender, EventArgs e)
@@ -51,9 +53,13 @@ namespace AvionicsInstrumentControlDemo
                 {
                     this.WindowState = FormWindowState.Normal;
                     this.Location = new Point(100, 50);
+                    serialComForm.formResize(tabPageSerialPort.Height, tabPageSerialPort.Width);
                 }
                 else
+                {
                     this.WindowState = FormWindowState.Maximized;
+                    serialComForm.formResize(tabPageSerialPort.Height, tabPageSerialPort.Width);
+                }
             }
             else if (sender == pictureBoxMinimize)
             {
@@ -117,13 +123,30 @@ namespace AvionicsInstrumentControlDemo
 
         private void panelUp_DoubleClick(object sender, EventArgs e)
         {
-            if(this.WindowState == FormWindowState.Maximized)
+            if (this.WindowState == FormWindowState.Maximized)
             {
                 this.WindowState = FormWindowState.Normal;
+                this.Location = new Point(100, 50);
+                serialComForm.formResize(tabPageSerialPort.Height, tabPageSerialPort.Width);
             }
-            else if(this.WindowState == FormWindowState.Normal)
+            else
             {
                 this.WindowState = FormWindowState.Maximized;
+                serialComForm.formResize(tabPageSerialPort.Height, tabPageSerialPort.Width);
+            }
+        }
+
+        private void tabControlUgv_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControlUgv.SelectedTab == tabPageSerialPort)
+            {
+                serialComForm.TopLevel = false;
+                //serialCom.Dock = DockStyle.Fill;
+                serialComForm.AutoScroll = true;
+                tabPageSerialPort.Controls.Add(serialComForm);
+                serialComForm.Show();
+
+                serialComForm.formResize(tabPageSerialPort.Height, tabPageSerialPort.Width);
             }
         }
     }
