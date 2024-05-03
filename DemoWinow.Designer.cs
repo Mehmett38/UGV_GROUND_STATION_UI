@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DemoWinow));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.airSpeedIndicatorInstrumentControl1 = new AvionicsInstrumentControlDemo.AirSpeedIndicatorInstrumentControl();
+            this.headingIndicatorInstrumentControl1 = new AvionicsInstrumentControlDemo.HeadingIndicatorInstrumentControl();
+            this.turnCoordinatorInstrumentControl1 = new AvionicsInstrumentControlDemo.TurnCoordinatorInstrumentControl();
+            this.attitudeIndicatorInstrumentControl1 = new AvionicsInstrumentControlDemo.AttitudeIndicatorInstrumentControl();
             this.label1 = new System.Windows.Forms.Label();
             this.panelUp = new System.Windows.Forms.Panel();
             this.pictureBoxMinimize = new System.Windows.Forms.PictureBox();
@@ -38,16 +42,16 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.gMapControl = new GMap.NET.WindowsForms.GMapControl();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.airSpeedIndicatorInstrumentControl1 = new AvionicsInstrumentControlDemo.AirSpeedIndicatorInstrumentControl();
-            this.headingIndicatorInstrumentControl1 = new AvionicsInstrumentControlDemo.HeadingIndicatorInstrumentControl();
-            this.turnCoordinatorInstrumentControl1 = new AvionicsInstrumentControlDemo.TurnCoordinatorInstrumentControl();
-            this.attitudeIndicatorInstrumentControl1 = new AvionicsInstrumentControlDemo.AttitudeIndicatorInstrumentControl();
+            this.tabControlUgv = new System.Windows.Forms.TabControl();
+            this.tabUgv = new System.Windows.Forms.TabPage();
+            this.tabPageSerialPort = new System.Windows.Forms.TabPage();
             this.panel1.SuspendLayout();
             this.panelUp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxScale)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             this.panel2.SuspendLayout();
+            this.tabControlUgv.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -58,10 +62,47 @@
             this.panel1.Controls.Add(this.turnCoordinatorInstrumentControl1);
             this.panel1.Controls.Add(this.attitudeIndicatorInstrumentControl1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 40);
+            this.panel1.Location = new System.Drawing.Point(0, 32);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(342, 791);
+            this.panel1.Size = new System.Drawing.Size(256, 643);
             this.panel1.TabIndex = 4;
+            // 
+            // airSpeedIndicatorInstrumentControl1
+            // 
+            this.airSpeedIndicatorInstrumentControl1.Location = new System.Drawing.Point(28, 629);
+            this.airSpeedIndicatorInstrumentControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.airSpeedIndicatorInstrumentControl1.Name = "airSpeedIndicatorInstrumentControl1";
+            this.airSpeedIndicatorInstrumentControl1.Size = new System.Drawing.Size(200, 207);
+            this.airSpeedIndicatorInstrumentControl1.TabIndex = 0;
+            this.airSpeedIndicatorInstrumentControl1.Text = "airSpeedIndicatorInstrumentControl1";
+            // 
+            // headingIndicatorInstrumentControl1
+            // 
+            this.headingIndicatorInstrumentControl1.Location = new System.Drawing.Point(28, 419);
+            this.headingIndicatorInstrumentControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.headingIndicatorInstrumentControl1.Name = "headingIndicatorInstrumentControl1";
+            this.headingIndicatorInstrumentControl1.Size = new System.Drawing.Size(200, 207);
+            this.headingIndicatorInstrumentControl1.TabIndex = 0;
+            this.headingIndicatorInstrumentControl1.Text = "headingIndicatorInstrumentControl1";
+            // 
+            // turnCoordinatorInstrumentControl1
+            // 
+            this.turnCoordinatorInstrumentControl1.Location = new System.Drawing.Point(28, 210);
+            this.turnCoordinatorInstrumentControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.turnCoordinatorInstrumentControl1.Name = "turnCoordinatorInstrumentControl1";
+            this.turnCoordinatorInstrumentControl1.Size = new System.Drawing.Size(200, 207);
+            this.turnCoordinatorInstrumentControl1.TabIndex = 6;
+            this.turnCoordinatorInstrumentControl1.Text = "turnCoordinatorInstrumentControl1";
+            // 
+            // attitudeIndicatorInstrumentControl1
+            // 
+            this.attitudeIndicatorInstrumentControl1.Location = new System.Drawing.Point(28, 0);
+            this.attitudeIndicatorInstrumentControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.attitudeIndicatorInstrumentControl1.Name = "attitudeIndicatorInstrumentControl1";
+            this.attitudeIndicatorInstrumentControl1.Size = new System.Drawing.Size(200, 207);
+            this.attitudeIndicatorInstrumentControl1.TabIndex = 6;
+            this.attitudeIndicatorInstrumentControl1.Text = "attitudeIndicatorInstrumentControl1";
             // 
             // label1
             // 
@@ -69,9 +110,10 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(3, 6);
+            this.label1.Location = new System.Drawing.Point(2, 5);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(249, 25);
+            this.label1.Size = new System.Drawing.Size(201, 20);
             this.label1.TabIndex = 5;
             this.label1.Text = "UGV GROUND CONTROL";
             // 
@@ -85,9 +127,11 @@
             this.panelUp.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelUp.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panelUp.Location = new System.Drawing.Point(0, 0);
+            this.panelUp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelUp.Name = "panelUp";
-            this.panelUp.Size = new System.Drawing.Size(1743, 40);
+            this.panelUp.Size = new System.Drawing.Size(1307, 32);
             this.panelUp.TabIndex = 2;
+            this.panelUp.DoubleClick += new System.EventHandler(this.panelUp_DoubleClick);
             this.panelUp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mauseDownEvent);
             this.panelUp.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mauseMoveEvent);
             // 
@@ -96,9 +140,10 @@
             this.pictureBoxMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxMinimize.BackColor = System.Drawing.Color.Black;
             this.pictureBoxMinimize.Image = global::AvionicsInstrumentControlDemo.Properties.Resources.minimizeIcon;
-            this.pictureBoxMinimize.Location = new System.Drawing.Point(1618, 4);
+            this.pictureBoxMinimize.Location = new System.Drawing.Point(1214, 3);
+            this.pictureBoxMinimize.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBoxMinimize.Name = "pictureBoxMinimize";
-            this.pictureBoxMinimize.Size = new System.Drawing.Size(32, 32);
+            this.pictureBoxMinimize.Size = new System.Drawing.Size(24, 26);
             this.pictureBoxMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxMinimize.TabIndex = 5;
             this.pictureBoxMinimize.TabStop = false;
@@ -110,9 +155,10 @@
             // 
             this.pictureBoxScale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxScale.Image = global::AvionicsInstrumentControlDemo.Properties.Resources.minizeIcon;
-            this.pictureBoxScale.Location = new System.Drawing.Point(1664, 3);
+            this.pictureBoxScale.Location = new System.Drawing.Point(1248, 2);
+            this.pictureBoxScale.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBoxScale.Name = "pictureBoxScale";
-            this.pictureBoxScale.Size = new System.Drawing.Size(32, 32);
+            this.pictureBoxScale.Size = new System.Drawing.Size(24, 26);
             this.pictureBoxScale.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxScale.TabIndex = 5;
             this.pictureBoxScale.TabStop = false;
@@ -124,9 +170,10 @@
             // 
             this.pictureBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxClose.Image = global::AvionicsInstrumentControlDemo.Properties.Resources.closeIcon;
-            this.pictureBoxClose.Location = new System.Drawing.Point(1707, 3);
+            this.pictureBoxClose.Location = new System.Drawing.Point(1280, 2);
+            this.pictureBoxClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBoxClose.Name = "pictureBoxClose";
-            this.pictureBoxClose.Size = new System.Drawing.Size(32, 32);
+            this.pictureBoxClose.Size = new System.Drawing.Size(24, 26);
             this.pictureBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxClose.TabIndex = 5;
             this.pictureBoxClose.TabStop = false;
@@ -138,9 +185,10 @@
             // 
             this.panel2.Controls.Add(this.gMapControl);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(342, 239);
+            this.panel2.Location = new System.Drawing.Point(256, 194);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1401, 592);
+            this.panel2.Size = new System.Drawing.Size(1051, 481);
             this.panel2.TabIndex = 5;
             // 
             // gMapControl
@@ -153,6 +201,7 @@
             this.gMapControl.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
             this.gMapControl.LevelsKeepInMemmory = 5;
             this.gMapControl.Location = new System.Drawing.Point(0, 0);
+            this.gMapControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gMapControl.MarkersEnabled = true;
             this.gMapControl.MaxZoom = 2;
             this.gMapControl.MinZoom = 2;
@@ -165,7 +214,7 @@
             this.gMapControl.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.gMapControl.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gMapControl.ShowTileGridLines = false;
-            this.gMapControl.Size = new System.Drawing.Size(1401, 592);
+            this.gMapControl.Size = new System.Drawing.Size(1051, 481);
             this.gMapControl.TabIndex = 0;
             this.gMapControl.Zoom = 0D;
             // 
@@ -173,55 +222,55 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(342, 40);
+            this.panel3.Location = new System.Drawing.Point(256, 32);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(823, 199);
+            this.panel3.Size = new System.Drawing.Size(617, 162);
             this.panel3.TabIndex = 6;
             // 
-            // airSpeedIndicatorInstrumentControl1
+            // tabControlUgv
             // 
-            this.airSpeedIndicatorInstrumentControl1.Location = new System.Drawing.Point(38, 774);
-            this.airSpeedIndicatorInstrumentControl1.Name = "airSpeedIndicatorInstrumentControl1";
-            this.airSpeedIndicatorInstrumentControl1.Size = new System.Drawing.Size(266, 255);
-            this.airSpeedIndicatorInstrumentControl1.TabIndex = 0;
-            this.airSpeedIndicatorInstrumentControl1.Text = "airSpeedIndicatorInstrumentControl1";
+            this.tabControlUgv.Controls.Add(this.tabUgv);
+            this.tabControlUgv.Controls.Add(this.tabPageSerialPort);
+            this.tabControlUgv.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlUgv.Location = new System.Drawing.Point(873, 32);
+            this.tabControlUgv.Name = "tabControlUgv";
+            this.tabControlUgv.SelectedIndex = 0;
+            this.tabControlUgv.Size = new System.Drawing.Size(434, 162);
+            this.tabControlUgv.TabIndex = 7;
             // 
-            // headingIndicatorInstrumentControl1
+            // tabUgv
             // 
-            this.headingIndicatorInstrumentControl1.Location = new System.Drawing.Point(38, 516);
-            this.headingIndicatorInstrumentControl1.Name = "headingIndicatorInstrumentControl1";
-            this.headingIndicatorInstrumentControl1.Size = new System.Drawing.Size(266, 255);
-            this.headingIndicatorInstrumentControl1.TabIndex = 0;
-            this.headingIndicatorInstrumentControl1.Text = "headingIndicatorInstrumentControl1";
+            this.tabUgv.Location = new System.Drawing.Point(4, 22);
+            this.tabUgv.Name = "tabUgv";
+            this.tabUgv.Padding = new System.Windows.Forms.Padding(3);
+            this.tabUgv.Size = new System.Drawing.Size(192, 74);
+            this.tabUgv.TabIndex = 0;
+            this.tabUgv.Text = "UGV";
+            this.tabUgv.UseVisualStyleBackColor = true;
             // 
-            // turnCoordinatorInstrumentControl1
+            // tabPageSerialPort
             // 
-            this.turnCoordinatorInstrumentControl1.Location = new System.Drawing.Point(38, 258);
-            this.turnCoordinatorInstrumentControl1.Name = "turnCoordinatorInstrumentControl1";
-            this.turnCoordinatorInstrumentControl1.Size = new System.Drawing.Size(266, 255);
-            this.turnCoordinatorInstrumentControl1.TabIndex = 6;
-            this.turnCoordinatorInstrumentControl1.Text = "turnCoordinatorInstrumentControl1";
-            // 
-            // attitudeIndicatorInstrumentControl1
-            // 
-            this.attitudeIndicatorInstrumentControl1.Location = new System.Drawing.Point(38, 0);
-            this.attitudeIndicatorInstrumentControl1.Name = "attitudeIndicatorInstrumentControl1";
-            this.attitudeIndicatorInstrumentControl1.Size = new System.Drawing.Size(266, 255);
-            this.attitudeIndicatorInstrumentControl1.TabIndex = 6;
-            this.attitudeIndicatorInstrumentControl1.Text = "attitudeIndicatorInstrumentControl1";
+            this.tabPageSerialPort.Location = new System.Drawing.Point(4, 22);
+            this.tabPageSerialPort.Name = "tabPageSerialPort";
+            this.tabPageSerialPort.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageSerialPort.Size = new System.Drawing.Size(426, 136);
+            this.tabPageSerialPort.TabIndex = 1;
+            this.tabPageSerialPort.Text = "Serial Port";
+            this.tabPageSerialPort.UseVisualStyleBackColor = true;
             // 
             // DemoWinow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1743, 831);
+            this.ClientSize = new System.Drawing.Size(1307, 675);
+            this.Controls.Add(this.tabControlUgv);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelUp);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "DemoWinow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Avionics Controls Demo";
@@ -232,6 +281,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxScale)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.tabControlUgv.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -251,6 +301,9 @@
         private System.Windows.Forms.Panel panel2;
         private GMap.NET.WindowsForms.GMapControl gMapControl;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TabControl tabControlUgv;
+        private System.Windows.Forms.TabPage tabUgv;
+        private System.Windows.Forms.TabPage tabPageSerialPort;
     }
 }
 

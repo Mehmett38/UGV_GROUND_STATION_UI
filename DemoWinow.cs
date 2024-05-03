@@ -29,6 +29,7 @@ namespace AvionicsInstrumentControlDemo
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
+            this.StartPosition = FormStartPosition.CenterScreen;
 
             gMapControl.MapProvider = GMapProviders.GoogleMap;
             gMapControl.MinZoom = 3;
@@ -111,6 +112,18 @@ namespace AvionicsInstrumentControlDemo
                         this.Top = ((e.Y + this.Top - mouseDownLocation.Y) < 0) ? 0 : (e.Y + this.Top - mouseDownLocation.Y);
                     }
                 }
+            }
+        }
+
+        private void panelUp_DoubleClick(object sender, EventArgs e)
+        {
+            if(this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+            else if(this.WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
             }
         }
     }
