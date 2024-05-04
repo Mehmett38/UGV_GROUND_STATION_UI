@@ -15,7 +15,10 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO.Ports;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Windows.Forms;
 
@@ -25,6 +28,11 @@ namespace AvionicsInstrumentControlDemo
     {
         SerialCom serialComForm;
         MouseEventArgs mouseDownLocation;
+        bool serialPortConnectionFlag = false;
+        Crc crc;
+        int receiverBufferCleanLen = 1000;
+        int receiverBufferCounter = 0;
+        int packetCounter;
 
         public DemoWinow()
         {
@@ -38,7 +46,9 @@ namespace AvionicsInstrumentControlDemo
             gMapControl.Zoom = 8;
             gMapControl.Position = new PointLatLng(38.7, 35.55);
             
-            serialComForm = new SerialCom();
+            crc = new Crc();
+            serialComForm = new SerialCom(this);
+            serialPortUgv.ReadBufferSize = 8198;
         }
 
         private void clickEvent(object sender, EventArgs e)
@@ -142,12 +152,82 @@ namespace AvionicsInstrumentControlDemo
             {
                 serialComForm.TopLevel = false;
                 //serialCom.Dock = DockStyle.Fill;
-                serialComForm.AutoScroll = true;
+                serialComForm.AutoScroll = false;
                 tabPageSerialPort.Controls.Add(serialComForm);
                 serialComForm.Show();
 
-                serialComForm.formResize(tabPageSerialPort.Height, tabPageSerialPort.Width);
+                serialComForm.formResize(tabPageSerialPort.Height, tabPageSerialPort.Width, true);
             }
+        }
+
+        public bool serialPortConnect(SerialConnection serialPort)
+        {
+            try
+            {
+                serialPortUgv.PortName = serialPort.portName;
+                serialPortUgv.BaudRate = serialPort.baudrate;
+                serialPortUgv.DataBits = serialPort.dataBits;
+                serialPortUgv.Parity = serialPort.parity;
+                serialPortUgv.StopBits = serialPort.stopBit;
+                
+                serialPortUgv.Open();
+                serialPortUgv.DiscardInBuffer();
+                serialPortConnectionFlag = true;
+                return true;
+            }
+            catch (Exception)
+            {
+                serialPortConnectionFlag = false;
+                return false;
+                throw;
+            }
+        }
+        
+        private void serialPortUgv_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            //int rxByte = serialPortUgv.ReadByte();
+            //CircularBuffer.pushData((byte)rxByte);
+
+            //if (CircularBuffer.isDataReady((byte)rxByte))
+            //{
+            //    //label2.Invoke(new Action(() => label2.Text = (counter++).ToString()));
+
+            //}
+
+            //byte[] rxByte = new byte[25];
+            //serialPortUgv.Read(rxByte, 0, 25);
+
+            //string str = serialPortUgv.ReadExisting();
+            //byte [] line = Encoding.UTF8.GetBytes(serialPortUgv.ReadExisting());
+
+
+            //if (line.Length == 24)
+            //{
+            //    byte[] bytes = Encoding.UTF8.GetBytes(line);
+
+            //    CircularBuffer.pushData(bytes);
+            //}
+
+            //if (CircularBuffer.isDataReady())
+            //{
+            //    label2.Invoke(new Action(() => label2.Text = (counter++).ToString()));
+
+            //}
+
+            //packetCounter += line.Length;
+
+            int bitNum = serialPortUgv.BytesToRead;
+            byte[] buffer = new byte[bitNum];
+            serialPortUgv.Read(buffer, 0, buffer.Length);
+
+            CircularBuffer.pushData(buffer, buffer.Length);
+
+            if(CircularBuffer.isDataReady())
+            {
+                serialComForm.updataPacketNum(packetCounter++);
+            }
+
+            serialPortUgv.DiscardInBuffer();
         }
     }
 }

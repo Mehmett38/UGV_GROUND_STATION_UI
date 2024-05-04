@@ -103,6 +103,26 @@ namespace AvionicsInstrumentControlDemo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Fa_Team_Fontawesome_FontAwesome_Plug_Circle_Xmark_512 {
+            get {
+                object obj = ResourceManager.GetObject("Fa-Team-Fontawesome-FontAwesome-Plug-Circle-Xmark.512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fa_Team_Fontawesome_FontAwesome_Plug_Circle_Xmark1 {
+            get {
+                object obj = ResourceManager.GetObject("Fa-Team-Fontawesome-FontAwesome-Plug-Circle-Xmark1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap image {
             get {
                 object obj = ResourceManager.GetObject("image", resourceCulture);
@@ -126,6 +146,36 @@ namespace AvionicsInstrumentControlDemo.Properties {
         internal static System.Drawing.Bitmap minizeIcon {
             get {
                 object obj = ResourceManager.GetObject("minizeIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap plug_and_plug_connection {
+            get {
+                object obj = ResourceManager.GetObject("plug-and-plug-connection", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap plugs {
+            get {
+                object obj = ResourceManager.GetObject("plugs", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Yusuke_Kamiyamane_Fugue_Plug_disconnect_16 {
+            get {
+                object obj = ResourceManager.GetObject("Yusuke-Kamiyamane-Fugue-Plug-disconnect.16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
