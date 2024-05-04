@@ -114,6 +114,12 @@
       <DependentUpon>SerialCom.cs</DependentUpon>
     </Compile>
     <Compile Include="SerialConnection.cs" />
+    <Compile Include="UgvInf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UgvInf.Designer.cs">
+      <DependentUpon>UgvInf.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AvionicsInstrumentsControls\AvionicsInstrumentsControlsRessources.resx">
       <SubType>Designer</SubType>
       <Generator>ResXFileCodeGenerator</Generator>
@@ -135,6 +141,9 @@
     </Compile>
     <EmbeddedResource Include="SerialCom.resx">
       <DependentUpon>SerialCom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UgvInf.resx">
+      <DependentUpon>UgvInf.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="packages.config" />
@@ -211,6 +220,10 @@
     <None Include="Resources\Aniket-Suvarna-Box-Regular-Bx-reset.512.png" />
     <None Include="Resources\reset.png" />
     <None Include="Resources\reset1.png" />
+    <Content Include="Images\Picture0.png" />
+    <Content Include="Images\Picture1.png" />
+    <Content Include="Images\Picture2.png" />
+    <None Include="Resources\Picture0.png" />
     <Content Include="Resources\TurnCoordinatorAircraft.bmp" />
     <None Include="Resources\Yusuke-Kamiyamane-Fugue-Plug-disconnect.16.png" />
     <None Include="Resources\minimizeIcon.png" />
@@ -228,6 +241,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

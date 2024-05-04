@@ -27,6 +27,7 @@ namespace AvionicsInstrumentControlDemo
     public partial class DemoWinow : Form
     {
         SerialCom serialComForm;
+        UgvInf ugvInfForm;
         MouseEventArgs mouseDownLocation;
         bool serialPortConnectionFlag = false;
         bool updateFlag = false;
@@ -47,12 +48,25 @@ namespace AvionicsInstrumentControlDemo
             gMapControl.MaxZoom = 100;
             gMapControl.Zoom = 8;
             gMapControl.Position = new PointLatLng(38.7, 35.55);
-            
+
             crc = new Crc();
             serialComForm = new SerialCom(this);
+            ugvInfForm = new UgvInf();
             serialPortUgv.ReadBufferSize = 8198;
             ugvDatasList = new Stack<UgvDatas>();
             timerUpdate.Start();
+
+            this.Load += DemoWinow_Load;
+        }
+
+        private void DemoWinow_Load(object sender, EventArgs e)
+        {
+            ugvInfForm.TopLevel = false;
+            //serialCom.Dock = DockStyle.Fill;
+            ugvInfForm.AutoScroll = false;
+            tabUgv.Controls.Add(ugvInfForm);
+            ugvInfForm.Show();
+            ugvInfForm.formResize(tabControlUgv.Height, tabControlUgv.Width, true);
         }
 
         private void clickEvent(object sender, EventArgs e)
@@ -68,11 +82,13 @@ namespace AvionicsInstrumentControlDemo
                     this.WindowState = FormWindowState.Normal;
                     this.Location = new Point(100, 50);
                     serialComForm.formResize(tabPageSerialPort.Height, tabPageSerialPort.Width);
+                    ugvInfForm.formResize(tabUgv.Height, tabUgv.Width, true);
                 }
                 else
                 {
                     this.WindowState = FormWindowState.Maximized;
                     serialComForm.formResize(tabPageSerialPort.Height, tabPageSerialPort.Width);
+                    ugvInfForm.formResize(tabUgv.Height, tabUgv.Width, true);
                 }
             }
             else if (sender == pictureBoxMinimize)
@@ -142,11 +158,13 @@ namespace AvionicsInstrumentControlDemo
                 this.WindowState = FormWindowState.Normal;
                 this.Location = new Point(100, 50);
                 serialComForm.formResize(tabPageSerialPort.Height, tabPageSerialPort.Width);
+                ugvInfForm.formResize(tabUgv.Height, tabUgv.Width, true);
             }
             else
             {
                 this.WindowState = FormWindowState.Maximized;
                 serialComForm.formResize(tabPageSerialPort.Height, tabPageSerialPort.Width);
+                ugvInfForm.formResize(tabUgv.Height, tabUgv.Width, true);
             }
         }
 
@@ -173,7 +191,7 @@ namespace AvionicsInstrumentControlDemo
                 serialPortUgv.DataBits = serialPort.dataBits;
                 serialPortUgv.Parity = serialPort.parity;
                 serialPortUgv.StopBits = serialPort.stopBit;
-                
+
                 serialPortUgv.Open();
                 serialPortUgv.DiscardInBuffer();
                 serialPortConnectionFlag = true;
@@ -207,7 +225,7 @@ namespace AvionicsInstrumentControlDemo
                 throw;
             }
         }
-        
+
         private void serialPortUgv_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             //int rxByte = serialPortUgv.ReadByte();
@@ -247,7 +265,7 @@ namespace AvionicsInstrumentControlDemo
 
             CircularBuffer.pushData(buffer, buffer.Length);
 
-            if(CircularBuffer.isDataReady())
+            if (CircularBuffer.isDataReady())
             {
                 ugvDatasList.Push(CircularBuffer.getParsedDatas());
                 serialComForm.updataPacketNum(packetCounter++);
@@ -259,9 +277,10 @@ namespace AvionicsInstrumentControlDemo
 
         private void timerUpdate_Tick(object sender, EventArgs e)
         {
-            if(updateFlag)
+            if (updateFlag)
             {
                 UgvDatas ugv = ugvDatasList.Pop();
+                ugvInfForm.updateLedStatus(ugv.ledState);
 
                 headingIndicatorInstrumentControl1.SetHeadingIndicatorParameters(ugv.azimuth);
                 updateFlag = false;

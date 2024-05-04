@@ -163,6 +163,16 @@ namespace AvionicsInstrumentControlDemo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Picture0 {
+            get {
+                object obj = ResourceManager.GetObject("Picture0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap plug_and_plug_connection {
             get {
                 object obj = ResourceManager.GetObject("plug-and-plug-connection", resourceCulture);
