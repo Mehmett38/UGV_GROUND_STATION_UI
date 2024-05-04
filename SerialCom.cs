@@ -133,12 +133,12 @@ namespace AvionicsInstrumentControlDemo
 
                 if (demWin.serialPortConnect(serialConnect))
                 {
-                    buttonConnect.Location = new Point(170, 150);
+                    buttonConnect.Location = new Point(130, 150);
                     buttonConnect.Enabled = false;
                     buttonConnect.BackColor = Color.Green;
 
                     buttonDisconnect.Visible = true;
-                    buttonDisconnect.Location = new Point(350, 150);
+                    buttonDisconnect.Location = new Point(300, 150);
 
                     //buttonConnect.BackColor = Color.FromArgb(253, 253, 253);
                     //buttonConnect.Enabled = true;
@@ -158,7 +158,7 @@ namespace AvionicsInstrumentControlDemo
         {
             if(demWin.closeSerialPort())
             {
-                buttonConnect.Location = new Point(250, 150);
+                buttonConnect.Location = new Point(220, 150);
                 buttonConnect.Enabled = true;
                 buttonConnect.BackColor = Color.FromArgb(253, 253, 253);
 

@@ -39,12 +39,12 @@
             this.gMapControl = new GMap.NET.WindowsForms.GMapControl();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.pictureBoxClose = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBoxScale = new System.Windows.Forms.PictureBox();
-            this.pictureBoxMinimize = new System.Windows.Forms.PictureBox();
             this.panelUp = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBoxMinimize = new System.Windows.Forms.PictureBox();
+            this.pictureBoxScale = new System.Windows.Forms.PictureBox();
+            this.pictureBoxClose = new System.Windows.Forms.PictureBox();
             this.airSpeedIndicatorInstrumentControl1 = new AvionicsInstrumentControlDemo.AirSpeedIndicatorInstrumentControl();
             this.headingIndicatorInstrumentControl1 = new AvionicsInstrumentControlDemo.HeadingIndicatorInstrumentControl();
             this.turnCoordinatorInstrumentControl1 = new AvionicsInstrumentControlDemo.TurnCoordinatorInstrumentControl();
@@ -53,10 +53,10 @@
             this.tabControlUgv.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxScale)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinimize)).BeginInit();
             this.panelUp.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinimize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxScale)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -96,11 +96,11 @@
             // tabUgv
             // 
             this.tabUgv.BackColor = System.Drawing.SystemColors.Control;
-            this.tabUgv.Location = new System.Drawing.Point(4, 25);
+            this.tabUgv.Location = new System.Drawing.Point(4, 31);
             this.tabUgv.Margin = new System.Windows.Forms.Padding(4);
             this.tabUgv.Name = "tabUgv";
             this.tabUgv.Padding = new System.Windows.Forms.Padding(4);
-            this.tabUgv.Size = new System.Drawing.Size(760, 181);
+            this.tabUgv.Size = new System.Drawing.Size(760, 175);
             this.tabUgv.TabIndex = 0;
             this.tabUgv.Text = "UGV";
             // 
@@ -109,6 +109,7 @@
             this.tabControlUgv.Controls.Add(this.tabUgv);
             this.tabControlUgv.Controls.Add(this.tabPageSerialPort);
             this.tabControlUgv.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlUgv.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tabControlUgv.Location = new System.Drawing.Point(0, 0);
             this.tabControlUgv.Margin = new System.Windows.Forms.Padding(4);
             this.tabControlUgv.Name = "tabControlUgv";
@@ -166,21 +167,6 @@
             this.panel4.Size = new System.Drawing.Size(768, 210);
             this.panel4.TabIndex = 8;
             // 
-            // pictureBoxClose
-            // 
-            this.pictureBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxClose.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxClose.Image")));
-            this.pictureBoxClose.Location = new System.Drawing.Point(1707, 2);
-            this.pictureBoxClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBoxClose.Name = "pictureBoxClose";
-            this.pictureBoxClose.Size = new System.Drawing.Size(32, 32);
-            this.pictureBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxClose.TabIndex = 5;
-            this.pictureBoxClose.TabStop = false;
-            this.pictureBoxClose.Click += new System.EventHandler(this.clickEvent);
-            this.pictureBoxClose.MouseLeave += new System.EventHandler(this.mauseLeaveEvent);
-            this.pictureBoxClose.MouseHover += new System.EventHandler(this.mauseHoverEvent);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -192,37 +178,6 @@
             this.label1.Size = new System.Drawing.Size(249, 25);
             this.label1.TabIndex = 5;
             this.label1.Text = "UGV GROUND CONTROL";
-            // 
-            // pictureBoxScale
-            // 
-            this.pictureBoxScale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxScale.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxScale.Image")));
-            this.pictureBoxScale.Location = new System.Drawing.Point(1664, 2);
-            this.pictureBoxScale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBoxScale.Name = "pictureBoxScale";
-            this.pictureBoxScale.Size = new System.Drawing.Size(32, 32);
-            this.pictureBoxScale.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxScale.TabIndex = 5;
-            this.pictureBoxScale.TabStop = false;
-            this.pictureBoxScale.Click += new System.EventHandler(this.clickEvent);
-            this.pictureBoxScale.MouseLeave += new System.EventHandler(this.mauseLeaveEvent);
-            this.pictureBoxScale.MouseHover += new System.EventHandler(this.mauseHoverEvent);
-            // 
-            // pictureBoxMinimize
-            // 
-            this.pictureBoxMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxMinimize.BackColor = System.Drawing.Color.Black;
-            this.pictureBoxMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxMinimize.Image")));
-            this.pictureBoxMinimize.Location = new System.Drawing.Point(1619, 4);
-            this.pictureBoxMinimize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBoxMinimize.Name = "pictureBoxMinimize";
-            this.pictureBoxMinimize.Size = new System.Drawing.Size(32, 32);
-            this.pictureBoxMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxMinimize.TabIndex = 5;
-            this.pictureBoxMinimize.TabStop = false;
-            this.pictureBoxMinimize.Click += new System.EventHandler(this.clickEvent);
-            this.pictureBoxMinimize.MouseLeave += new System.EventHandler(this.mauseLeaveEvent);
-            this.pictureBoxMinimize.MouseHover += new System.EventHandler(this.mauseHoverEvent);
             // 
             // panelUp
             // 
@@ -249,6 +204,52 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(344, 244);
             this.panel2.TabIndex = 1;
+            // 
+            // pictureBoxMinimize
+            // 
+            this.pictureBoxMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxMinimize.BackColor = System.Drawing.Color.Black;
+            this.pictureBoxMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxMinimize.Image")));
+            this.pictureBoxMinimize.Location = new System.Drawing.Point(1619, 4);
+            this.pictureBoxMinimize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBoxMinimize.Name = "pictureBoxMinimize";
+            this.pictureBoxMinimize.Size = new System.Drawing.Size(32, 32);
+            this.pictureBoxMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxMinimize.TabIndex = 5;
+            this.pictureBoxMinimize.TabStop = false;
+            this.pictureBoxMinimize.Click += new System.EventHandler(this.clickEvent);
+            this.pictureBoxMinimize.MouseLeave += new System.EventHandler(this.mauseLeaveEvent);
+            this.pictureBoxMinimize.MouseHover += new System.EventHandler(this.mauseHoverEvent);
+            // 
+            // pictureBoxScale
+            // 
+            this.pictureBoxScale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxScale.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxScale.Image")));
+            this.pictureBoxScale.Location = new System.Drawing.Point(1664, 2);
+            this.pictureBoxScale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBoxScale.Name = "pictureBoxScale";
+            this.pictureBoxScale.Size = new System.Drawing.Size(32, 32);
+            this.pictureBoxScale.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxScale.TabIndex = 5;
+            this.pictureBoxScale.TabStop = false;
+            this.pictureBoxScale.Click += new System.EventHandler(this.clickEvent);
+            this.pictureBoxScale.MouseLeave += new System.EventHandler(this.mauseLeaveEvent);
+            this.pictureBoxScale.MouseHover += new System.EventHandler(this.mauseHoverEvent);
+            // 
+            // pictureBoxClose
+            // 
+            this.pictureBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxClose.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxClose.Image")));
+            this.pictureBoxClose.Location = new System.Drawing.Point(1707, 2);
+            this.pictureBoxClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBoxClose.Name = "pictureBoxClose";
+            this.pictureBoxClose.Size = new System.Drawing.Size(32, 32);
+            this.pictureBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxClose.TabIndex = 5;
+            this.pictureBoxClose.TabStop = false;
+            this.pictureBoxClose.Click += new System.EventHandler(this.clickEvent);
+            this.pictureBoxClose.MouseLeave += new System.EventHandler(this.mauseLeaveEvent);
+            this.pictureBoxClose.MouseHover += new System.EventHandler(this.mauseHoverEvent);
             // 
             // airSpeedIndicatorInstrumentControl1
             // 
@@ -304,11 +305,11 @@
             this.tabControlUgv.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxScale)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinimize)).EndInit();
             this.panelUp.ResumeLayout(false);
             this.panelUp.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinimize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxScale)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
             this.ResumeLayout(false);
 
         }
