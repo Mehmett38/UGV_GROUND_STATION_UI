@@ -19,7 +19,9 @@ namespace AvionicsInstrumentControlDemo
         private int panelWidth;
         private int thisFormHeight;
         private int thisFormWidth;
+        int portNumber;
         string[] portNames;
+        private UgvDatas ugvDatas;
 
         [DllImport("user32.dll")]
         static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, Int32 wParam, Int32 lParam);
@@ -29,13 +31,14 @@ namespace AvionicsInstrumentControlDemo
         {
             InitializeComponent();
 
-            demWin = form;
+            demWin = form; 
             buttonConnect.Location = new Point(145, 175);
             buttonDisconnect.Visible = false;
             //buttonConnect.Location = new Point(90, 175
             //buttonDisconnect.Location = new Point(200, 175);
 
             portNames = SerialPort.GetPortNames();
+            portNumber = portNames.Length;
             foreach (string portName in portNames)
             {
                 comboBoxPortName.Items.Add(portName);
@@ -55,6 +58,8 @@ namespace AvionicsInstrumentControlDemo
 
             comboBoxStopBits.SelectedIndex = 1;
             comboBoxStopBits.DropDownStyle= ComboBoxStyle.DropDownList;
+
+            timerPortCheck.Start();
         }
 
         public void formResize(int aPanelHeight, int aPanelWidth, bool firstInit = false)
@@ -151,7 +156,40 @@ namespace AvionicsInstrumentControlDemo
         }
         private void buttonDisconnect_Click(object sender, EventArgs e)
         {
-            
+            if(demWin.closeSerialPort())
+            {
+                buttonConnect.Location = new Point(250, 150);
+                buttonConnect.Enabled = true;
+                buttonConnect.BackColor = Color.FromArgb(253, 253, 253);
+
+                buttonDisconnect.Visible = false;
+            }
+        }
+
+        private void roundPictureBox1_Click(object sender, EventArgs e)
+        {
+            demWin.resetPacketCounter();
+            labelPacketNum.Text = "Total Packet Number : 0";
+        }
+
+        private void timerPortCheck_Tick(object sender, EventArgs e)
+        {
+            string[] scanPortNames = SerialPort.GetPortNames();
+
+            if(portNumber != scanPortNames.Length)
+            {
+                comboBoxPortName.Items.Clear();
+
+                Array.Sort(scanPortNames);
+
+                foreach(string scanPortName in scanPortNames)
+                {
+                    comboBoxPortName.Items.Add(scanPortName);
+                }
+
+                portNumber = scanPortNames.Length;
+                comboBoxPortName.SelectedIndex = 0;
+            }
         }
     }
 }

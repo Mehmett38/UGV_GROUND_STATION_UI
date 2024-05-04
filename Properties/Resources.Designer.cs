@@ -63,6 +63,16 @@ namespace AvionicsInstrumentControlDemo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Aniket_Suvarna_Box_Regular_Bx_reset_512 {
+            get {
+                object obj = ResourceManager.GetObject("Aniket-Suvarna-Box-Regular-Bx-reset.512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap closeIcon {
             get {
                 object obj = ResourceManager.GetObject("closeIcon", resourceCulture);
@@ -166,6 +176,26 @@ namespace AvionicsInstrumentControlDemo.Properties {
         internal static System.Drawing.Bitmap plugs {
             get {
                 object obj = ResourceManager.GetObject("plugs", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap reset {
+            get {
+                object obj = ResourceManager.GetObject("reset", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap reset1 {
+            get {
+                object obj = ResourceManager.GetObject("reset1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

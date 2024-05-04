@@ -43,6 +43,8 @@
             this.tabUgv = new System.Windows.Forms.TabPage();
             this.tabPageSerialPort = new System.Windows.Forms.TabPage();
             this.serialPortUgv = new System.IO.Ports.SerialPort(this.components);
+            this.timerUpdate = new System.Windows.Forms.Timer(this.components);
+            this.label2 = new System.Windows.Forms.Label();
             this.airSpeedIndicatorInstrumentControl1 = new AvionicsInstrumentControlDemo.AirSpeedIndicatorInstrumentControl();
             this.headingIndicatorInstrumentControl1 = new AvionicsInstrumentControlDemo.HeadingIndicatorInstrumentControl();
             this.turnCoordinatorInstrumentControl1 = new AvionicsInstrumentControlDemo.TurnCoordinatorInstrumentControl();
@@ -59,15 +61,16 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.airSpeedIndicatorInstrumentControl1);
             this.panel1.Controls.Add(this.headingIndicatorInstrumentControl1);
             this.panel1.Controls.Add(this.turnCoordinatorInstrumentControl1);
             this.panel1.Controls.Add(this.attitudeIndicatorInstrumentControl1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 39);
+            this.panel1.Location = new System.Drawing.Point(0, 76);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(341, 792);
+            this.panel1.Size = new System.Drawing.Size(325, 755);
             this.panel1.TabIndex = 4;
             // 
             // label1
@@ -94,7 +97,7 @@
             this.panelUp.Location = new System.Drawing.Point(0, 0);
             this.panelUp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelUp.Name = "panelUp";
-            this.panelUp.Size = new System.Drawing.Size(1743, 39);
+            this.panelUp.Size = new System.Drawing.Size(1743, 76);
             this.panelUp.TabIndex = 2;
             this.panelUp.DoubleClick += new System.EventHandler(this.panelUp_DoubleClick);
             this.panelUp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mauseDownEvent);
@@ -150,10 +153,10 @@
             // 
             this.panel2.Controls.Add(this.gMapControl);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(341, 239);
+            this.panel2.Location = new System.Drawing.Point(325, -325);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1402, 592);
+            this.panel2.Size = new System.Drawing.Size(1418, 1156);
             this.panel2.TabIndex = 5;
             // 
             // gMapControl
@@ -179,7 +182,7 @@
             this.gMapControl.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.gMapControl.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gMapControl.ShowTileGridLines = false;
-            this.gMapControl.Size = new System.Drawing.Size(1402, 592);
+            this.gMapControl.Size = new System.Drawing.Size(1418, 1156);
             this.gMapControl.TabIndex = 0;
             this.gMapControl.Zoom = 0D;
             // 
@@ -187,10 +190,10 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(341, 39);
+            this.panel3.Location = new System.Drawing.Point(325, 76);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(823, 200);
+            this.panel3.Size = new System.Drawing.Size(2010, 0);
             this.panel3.TabIndex = 6;
             // 
             // tabControlUgv
@@ -198,11 +201,11 @@
             this.tabControlUgv.Controls.Add(this.tabUgv);
             this.tabControlUgv.Controls.Add(this.tabPageSerialPort);
             this.tabControlUgv.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControlUgv.Location = new System.Drawing.Point(1164, 39);
+            this.tabControlUgv.Location = new System.Drawing.Point(2335, 76);
             this.tabControlUgv.Margin = new System.Windows.Forms.Padding(4);
             this.tabControlUgv.Name = "tabControlUgv";
             this.tabControlUgv.SelectedIndex = 0;
-            this.tabControlUgv.Size = new System.Drawing.Size(579, 200);
+            this.tabControlUgv.Size = new System.Drawing.Size(0, 0);
             this.tabControlUgv.TabIndex = 7;
             this.tabControlUgv.SelectedIndexChanged += new System.EventHandler(this.tabControlUgv_SelectedIndexChanged);
             // 
@@ -213,7 +216,7 @@
             this.tabUgv.Margin = new System.Windows.Forms.Padding(4);
             this.tabUgv.Name = "tabUgv";
             this.tabUgv.Padding = new System.Windows.Forms.Padding(4);
-            this.tabUgv.Size = new System.Drawing.Size(571, 171);
+            this.tabUgv.Size = new System.Drawing.Size(0, 0);
             this.tabUgv.TabIndex = 0;
             this.tabUgv.Text = "UGV";
             // 
@@ -223,7 +226,7 @@
             this.tabPageSerialPort.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageSerialPort.Name = "tabPageSerialPort";
             this.tabPageSerialPort.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPageSerialPort.Size = new System.Drawing.Size(571, 171);
+            this.tabPageSerialPort.Size = new System.Drawing.Size(0, 0);
             this.tabPageSerialPort.TabIndex = 1;
             this.tabPageSerialPort.Text = "Serial Port";
             this.tabPageSerialPort.UseVisualStyleBackColor = true;
@@ -231,6 +234,22 @@
             // serialPortUgv
             // 
             this.serialPortUgv.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPortUgv_DataReceived);
+            // 
+            // timerUpdate
+            // 
+            this.timerUpdate.Interval = 25;
+            this.timerUpdate.Tick += new System.EventHandler(this.timerUpdate_Tick);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Cursor = System.Windows.Forms.Cursors.SizeAll;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(267, 513);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 22);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "label2";
             // 
             // airSpeedIndicatorInstrumentControl1
             // 
@@ -285,6 +304,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Avionics Controls Demo";
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panelUp.ResumeLayout(false);
             this.panelUp.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinimize)).EndInit();
@@ -315,6 +335,8 @@
         private System.Windows.Forms.TabPage tabUgv;
         private System.Windows.Forms.TabPage tabPageSerialPort;
         private System.IO.Ports.SerialPort serialPortUgv;
+        private System.Windows.Forms.Timer timerUpdate;
+        private System.Windows.Forms.Label label2;
     }
 }
 

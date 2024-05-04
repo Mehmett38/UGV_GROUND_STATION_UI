@@ -29,10 +29,12 @@ namespace AvionicsInstrumentControlDemo
         SerialCom serialComForm;
         MouseEventArgs mouseDownLocation;
         bool serialPortConnectionFlag = false;
+        bool updateFlag = false;
         Crc crc;
         int receiverBufferCleanLen = 1000;
         int receiverBufferCounter = 0;
         int packetCounter;
+        Stack<UgvDatas> ugvDatasList;
 
         public DemoWinow()
         {
@@ -49,6 +51,8 @@ namespace AvionicsInstrumentControlDemo
             crc = new Crc();
             serialComForm = new SerialCom(this);
             serialPortUgv.ReadBufferSize = 8198;
+            ugvDatasList = new Stack<UgvDatas>();
+            timerUpdate.Start();
         }
 
         private void clickEvent(object sender, EventArgs e)
@@ -182,6 +186,27 @@ namespace AvionicsInstrumentControlDemo
                 throw;
             }
         }
+
+        public void resetPacketCounter()
+        {
+            packetCounter = 0;
+        }
+
+        public bool closeSerialPort()
+        {
+            try
+            {
+                serialPortUgv.Close();
+                serialPortConnectionFlag = false;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+                throw;
+            }
+        }
         
         private void serialPortUgv_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
@@ -224,10 +249,23 @@ namespace AvionicsInstrumentControlDemo
 
             if(CircularBuffer.isDataReady())
             {
+                ugvDatasList.Push(CircularBuffer.getParsedDatas());
                 serialComForm.updataPacketNum(packetCounter++);
+                updateFlag = true;
             }
 
             serialPortUgv.DiscardInBuffer();
+        }
+
+        private void timerUpdate_Tick(object sender, EventArgs e)
+        {
+            if(updateFlag)
+            {
+                UgvDatas ugv = ugvDatasList.Pop();
+
+                headingIndicatorInstrumentControl1.SetHeadingIndicatorParameters(ugv.azimuth);
+                updateFlag = false;
+            }
         }
     }
 }

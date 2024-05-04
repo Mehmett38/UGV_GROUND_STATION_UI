@@ -95,6 +95,7 @@
     </Compile>
     <Compile Include="CircularBuffer.cs" />
     <Compile Include="Crc.cs" />
+    <Compile Include="UgvDatas.cs" />
     <Compile Include="DemoWinow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,6 +208,9 @@
     <None Include="Resources\Fa-Team-Fontawesome-FontAwesome-Plug-Circle-Xmark.5121.png" />
     <None Include="Resources\plug-and-plug-connection.png" />
     <None Include="Resources\plugs.png" />
+    <None Include="Resources\Aniket-Suvarna-Box-Regular-Bx-reset.512.png" />
+    <None Include="Resources\reset.png" />
+    <None Include="Resources\reset1.png" />
     <Content Include="Resources\TurnCoordinatorAircraft.bmp" />
     <None Include="Resources\Yusuke-Kamiyamane-Fugue-Plug-disconnect.16.png" />
     <None Include="Resources\minimizeIcon.png" />
