@@ -11,6 +11,7 @@
 
 using GMap.NET;
 using GMap.NET.MapProviders;
+using GMap.NET.WindowsForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -42,12 +43,7 @@ namespace AvionicsInstrumentControlDemo
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
             this.StartPosition = FormStartPosition.CenterScreen;
-
-            gMapControl.MapProvider = GMapProviders.GoogleMap;
-            gMapControl.MinZoom = 3;
-            gMapControl.MaxZoom = 100;
-            gMapControl.Zoom = 8;
-            gMapControl.Position = new PointLatLng(38.7, 35.55);
+            gmapSetting();
 
             crc = new Crc();
             serialComForm = new SerialCom(this);
@@ -69,6 +65,16 @@ namespace AvionicsInstrumentControlDemo
             ugvInfForm.formResize(tabControlUgv.Height, tabControlUgv.Width, true);
         }
 
+        private void gmapSetting()
+        {
+            gMapControl.MapProvider = GMapProviders.GoogleMap;
+            gMapControl.MinZoom = 3;
+            gMapControl.MaxZoom = 100;
+            gMapControl.Zoom = 8;
+            gMapControl.DragButton = MouseButtons.Left;
+            gMapControl.Position = new PointLatLng(38.7, 35.55);
+        }
+            
         private void clickEvent(object sender, EventArgs e)
         {
             if (sender == pictureBoxClose)
