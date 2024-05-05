@@ -220,6 +220,8 @@
     <None Include="Resources\Aniket-Suvarna-Box-Regular-Bx-reset.512.png" />
     <None Include="Resources\reset.png" />
     <None Include="Resources\reset1.png" />
+    <Content Include="Images\Gps0.png" />
+    <Content Include="Images\Gps1.png" />
     <Content Include="Images\Picture0.png" />
     <Content Include="Images\Picture1.png" />
     <Content Include="Images\Picture2.png" />
@@ -227,6 +229,7 @@
     <None Include="Resources\Colebemis-Feather-Plus.512.png" />
     <None Include="Resources\Amitjakhu-Drip-Minus.512.png" />
     <Content Include="Images\Picture3.jpg" />
+    <None Include="Resources\Icons8-Windows-8-Maps-Gps-Disconnected.512.png" />
     <Content Include="Resources\TurnCoordinatorAircraft.bmp" />
     <None Include="Resources\Yusuke-Kamiyamane-Fugue-Plug-disconnect.16.png" />
     <None Include="Resources\minimizeIcon.png" />

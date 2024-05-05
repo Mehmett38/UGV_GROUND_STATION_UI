@@ -41,6 +41,7 @@ namespace AvionicsInstrumentControlDemo
 
         //1. create a overlay
         GMapOverlay markers = new GMapOverlay("markers");
+        PointLatLng previousLatLon;
 
         public DemoWinow()
         {
@@ -74,23 +75,24 @@ namespace AvionicsInstrumentControlDemo
             gMapControl.MapProvider = GMapProviders.GoogleMap;
             gMapControl.MinZoom = 3;
             gMapControl.MaxZoom = 100;
-            gMapControl.Zoom = 9;
+            gMapControl.Zoom = 20;
             gMapControl.DragButton = MouseButtons.Left;
-            gMapControl.Position = new PointLatLng(38.7, 35.55);
+            gMapControl.Position = new PointLatLng(39.77968587, 32.8170593);
 
+            previousLatLon = gMapControl.Position;
 
-            /*create marker*/
-            PointLatLng location = new PointLatLng(38.64998025, 35.62260165);
-            //Bitmap bmpMarker = (Bitmap)Image.FromFile(@"C:\Users\Mehmet Dincer\Desktop\Bitirme\Kodlar\arayuz\AvionicsInstrumentControlDemo_Source\AvionicsInstrumentControlDemo\Images\Picture3.jpg");
-            GMapMarker gMapMarker = new GMarkerGoogle(location, GMarkerGoogleType.red_big_stop);
-            //GMapMarker gMapMarker = new GMarkerGoogle(location, bmpMarker);
+            ///*create marker*/
+            //PointLatLng location = new PointLatLng(38.64998025, 35.62260165);
+            ////Bitmap bmpMarker = (Bitmap)Image.FromFile(@"C:\Users\Mehmet Dincer\Desktop\Bitirme\Kodlar\arayuz\AvionicsInstrumentControlDemo_Source\AvionicsInstrumentControlDemo\Images\Picture3.jpg");
+            //GMapMarker gMapMarker = new GMarkerGoogle(location, GMarkerGoogleType.red_big_stop);
+            ////GMapMarker gMapMarker = new GMarkerGoogle(location, bmpMarker);
 
-            //1. create a overlay
-            //GMapOverlay markers = new GMapOverlay("markers");
-            //2. add all available markers to that overlay
-            markers.Markers.Add(gMapMarker);
-            //3. Cover map with Overlay
-            gMapControl.Overlays.Add(markers);
+            ////1. create a overlay
+            ////GMapOverlay markers = new GMapOverlay("markers");
+            ////2. add all available markers to that overlay
+            //markers.Markers.Add(gMapMarker);
+            ////3. Cover map with Overlay
+            //gMapControl.Overlays.Add(markers);
         }
             
         private void clickEvent(object sender, EventArgs e)
@@ -273,8 +275,47 @@ namespace AvionicsInstrumentControlDemo
             if (updateFlag)
             {
                 UgvDatas ugv = ugvDatasList.Pop();
+
+                /*change the led status*/
                 ugvInfForm.updateLedStatus(ugv.ledState);
+
+                /*change the azimuth*/
                 headingIndicatorInstrumentControl1.SetHeadingIndicatorParameters(ugv.azimuth);
+
+                if(ugv.gpsState == GpsState.POSITION_FIXED)
+                {
+                    /*set the postion*/
+                    double posLat = ugv.latitudeDegree + ugv.latitudeMinute / 60.0d + ugv.latitudeSecond / 3600.0d;
+                    double poslon = ugv.longitudeDegree + ugv.longitudeMinute / 60.0d + ugv.longitudeSecond / 3600.0d;
+
+                    gMapControl.Position = new PointLatLng(posLat, poslon);
+
+
+                    /*set the speed*/
+                    if (ugv.speed < 0.5f)
+                    {
+                        ugv.speed = 0;
+                    }
+                    airSpeedIndicatorInstrumentControl1.SetAirSpeedIndicatorParameters((int)(ugv.speed * 100));
+
+                    /*set the connection state*/
+                    ugvInfForm.updateGpsStatus(ugv.gpsState);
+
+                    /*set the satellite number*/
+                    ugvInfForm.updateSatelliteNumber(ugv.numberOfSatellite);
+                }
+                else
+                {
+
+                    airSpeedIndicatorInstrumentControl1.SetAirSpeedIndicatorParameters(0);
+
+                    /*set the connection state*/
+                    ugvInfForm.updateGpsStatus(GpsState.NO_CONNECTION);
+
+                    /*set the satellite number*/
+                    ugvInfForm.updateSatelliteNumber(0);
+                }
+
                 updateFlag = false;
             }
         }
@@ -307,19 +348,8 @@ namespace AvionicsInstrumentControlDemo
             double lonPos = gMapControl.Position.Lng;
 
             labelPosition.Text = latPos + "  --  " + lonPos;
-        }
 
-        private void gMapControl_OnMarkerClick(GMapMarker item, MouseEventArgs e)
-        {
-            if(e.Button == MouseButtons.Right)
-            {
-
-            }
-            else
-            {
-                gMapControl.Zoom = 17;
-                gMapControl.Position = item.Position;
-            }
+            previousLatLon = ((GMapControl)sender).Position;
         }
 
         private void gMapControl_DoubleClick(object sender, EventArgs e)
@@ -334,6 +364,12 @@ namespace AvionicsInstrumentControlDemo
             markers.Markers.Add(gMapMarker);
             //3. Cover map with Overlay
             gMapControl.Overlays.Add(markers);
+        }
+
+        private void gMapControl_OnMapZoomChanged()
+        {
+            gMapControl.Position = previousLatLon;
+            previousLatLon =  gMapControl.Position;
         }
     }
 }

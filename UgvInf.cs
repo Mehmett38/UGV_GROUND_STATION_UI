@@ -17,6 +17,8 @@ namespace AvionicsInstrumentControlDemo
         private int thisFormHeight;
         private int thisFormWidth;
         LedStates previousLedState = LedStates.LEDS_OFF;
+        GpsState previousGpsState = GpsState.NO_CONNECTION;
+        int previousSatelliteNumber = 0;
 
         public UgvInf()
         {
@@ -72,14 +74,44 @@ namespace AvionicsInstrumentControlDemo
 
         public void updateLedStatus(LedStates ledStates)
         {
-
             if (ledStates != previousLedState)
             {
                 string path = @"C:\Users\Mehmet Dincer\Desktop\Bitirme\Kodlar\arayuz\AvionicsInstrumentControlDemo_Source\AvionicsInstrumentControlDemo\Images\Picture";
                 path += ((int)ledStates).ToString() + ".png";
-                pictureBox1.Image = Image.FromFile(path);
+                pictureBoxLedStatus.Image = Image.FromFile(path);
 
                 previousLedState = ledStates;
+            }
+        }
+
+        public void updateGpsStatus(GpsState gpsState)
+        {
+            if(gpsState != previousGpsState)
+            {
+                string path = string.Empty;
+
+                if (gpsState != GpsState.POSITION_FIXED)
+                {
+                    path = @"C:\Users\Mehmet Dincer\Desktop\Bitirme\Kodlar\arayuz\AvionicsInstrumentControlDemo_Source\AvionicsInstrumentControlDemo\Images\Gps0.png";
+                }
+                else
+                {
+                    path = @"C:\Users\Mehmet Dincer\Desktop\Bitirme\Kodlar\arayuz\AvionicsInstrumentControlDemo_Source\AvionicsInstrumentControlDemo\Images\Gps1.png";
+                }
+
+                pictureBoxGpsStatus.Image = Image.FromFile(path);
+                previousGpsState = gpsState;
+            }
+        }
+
+        public void updateSatelliteNumber(int  satelliteNumber)
+        {
+
+            if (satelliteNumber != previousSatelliteNumber)
+            {
+                labelGpsNumber.Text = $"Satellite Number: {satelliteNumber}";
+
+                previousSatelliteNumber = satelliteNumber;
             }
         }
     }

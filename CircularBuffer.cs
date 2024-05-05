@@ -128,7 +128,7 @@ namespace AvionicsInstrumentControlDemo
             ugvDatas.speed = hexToFloat(u8Tou32);
 
             ugvDatas.ledState = (LedStates)dataBuffer[19];
-            ugvDatas.gpsState = (gpsState)dataBuffer[20];
+            ugvDatas.gpsState = (GpsState)dataBuffer[20];
 
             return ugvDatas;
         }

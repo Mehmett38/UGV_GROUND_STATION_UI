@@ -21,7 +21,7 @@ namespace AvionicsInstrumentControlDemo
         public int MyProperty { get; set; }
 
         public LedStates ledState{ get; set; }
-        public gpsState gpsState{ get; set; }
+        public GpsState gpsState { get; set; }
     }
 
     public enum LedStates
@@ -31,7 +31,7 @@ namespace AvionicsInstrumentControlDemo
         ALL_LED_ON,
     }
 
-    public enum gpsState
+    public enum GpsState
     {
         NO_CONNECTION,
         WRONG_DATA,
