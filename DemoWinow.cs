@@ -12,6 +12,7 @@
 using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
+using GMap.NET.WindowsForms.Markers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -37,6 +38,9 @@ namespace AvionicsInstrumentControlDemo
         int receiverBufferCounter = 0;
         int packetCounter;
         Stack<UgvDatas> ugvDatasList;
+
+        //1. create a overlay
+        GMapOverlay markers = new GMapOverlay("markers");
 
         public DemoWinow()
         {
@@ -70,9 +74,23 @@ namespace AvionicsInstrumentControlDemo
             gMapControl.MapProvider = GMapProviders.GoogleMap;
             gMapControl.MinZoom = 3;
             gMapControl.MaxZoom = 100;
-            gMapControl.Zoom = 8;
+            gMapControl.Zoom = 9;
             gMapControl.DragButton = MouseButtons.Left;
             gMapControl.Position = new PointLatLng(38.7, 35.55);
+
+
+            /*create marker*/
+            PointLatLng location = new PointLatLng(38.64998025, 35.62260165);
+            //Bitmap bmpMarker = (Bitmap)Image.FromFile(@"C:\Users\Mehmet Dincer\Desktop\Bitirme\Kodlar\arayuz\AvionicsInstrumentControlDemo_Source\AvionicsInstrumentControlDemo\Images\Picture3.jpg");
+            GMapMarker gMapMarker = new GMarkerGoogle(location, GMarkerGoogleType.red_big_stop);
+            //GMapMarker gMapMarker = new GMarkerGoogle(location, bmpMarker);
+
+            //1. create a overlay
+            //GMapOverlay markers = new GMapOverlay("markers");
+            //2. add all available markers to that overlay
+            markers.Markers.Add(gMapMarker);
+            //3. Cover map with Overlay
+            gMapControl.Overlays.Add(markers);
         }
             
         private void clickEvent(object sender, EventArgs e)
@@ -234,37 +252,6 @@ namespace AvionicsInstrumentControlDemo
 
         private void serialPortUgv_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            //int rxByte = serialPortUgv.ReadByte();
-            //CircularBuffer.pushData((byte)rxByte);
-
-            //if (CircularBuffer.isDataReady((byte)rxByte))
-            //{
-            //    //label2.Invoke(new Action(() => label2.Text = (counter++).ToString()));
-
-            //}
-
-            //byte[] rxByte = new byte[25];
-            //serialPortUgv.Read(rxByte, 0, 25);
-
-            //string str = serialPortUgv.ReadExisting();
-            //byte [] line = Encoding.UTF8.GetBytes(serialPortUgv.ReadExisting());
-
-
-            //if (line.Length == 24)
-            //{
-            //    byte[] bytes = Encoding.UTF8.GetBytes(line);
-
-            //    CircularBuffer.pushData(bytes);
-            //}
-
-            //if (CircularBuffer.isDataReady())
-            //{
-            //    label2.Invoke(new Action(() => label2.Text = (counter++).ToString()));
-
-            //}
-
-            //packetCounter += line.Length;
-
             int bitNum = serialPortUgv.BytesToRead;
             byte[] buffer = new byte[bitNum];
             serialPortUgv.Read(buffer, 0, buffer.Length);
@@ -287,10 +274,66 @@ namespace AvionicsInstrumentControlDemo
             {
                 UgvDatas ugv = ugvDatasList.Pop();
                 ugvInfForm.updateLedStatus(ugv.ledState);
-
                 headingIndicatorInstrumentControl1.SetHeadingIndicatorParameters(ugv.azimuth);
                 updateFlag = false;
             }
+        }
+
+        private void pictureBox1_MouseHover(object sender, EventArgs e)
+        {
+            Cursor = Cursors.Hand;
+        }
+
+        private void pictureBox1_MouseLeave(object sender, EventArgs e)
+        {
+            Cursor= Cursors.Default;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            if(sender ==  pictureBoxPlus)
+            {
+                gMapControl.Zoom += 1;
+            }
+            else if(sender == pictureBoxMinus) 
+            {
+                gMapControl.Zoom -= 1;
+            }
+        }
+
+        private void gMapControl_MouseMove(object sender, MouseEventArgs e)
+        {
+            double latPos = gMapControl.Position.Lat;
+            double lonPos = gMapControl.Position.Lng;
+
+            labelPosition.Text = latPos + "  --  " + lonPos;
+        }
+
+        private void gMapControl_OnMarkerClick(GMapMarker item, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Right)
+            {
+
+            }
+            else
+            {
+                gMapControl.Zoom = 17;
+                gMapControl.Position = item.Position;
+            }
+        }
+
+        private void gMapControl_DoubleClick(object sender, EventArgs e)
+        {
+            GMapControl map = (GMapControl)sender;
+
+            /*create marker*/
+            PointLatLng location = map.Position;
+            GMapMarker gMapMarker = new GMarkerGoogle(location, GMarkerGoogleType.red_big_stop);
+
+            //2. add all available markers to that overlay
+            markers.Markers.Add(gMapMarker);
+            //3. Cover map with Overlay
+            gMapControl.Overlays.Add(markers);
         }
     }
 }

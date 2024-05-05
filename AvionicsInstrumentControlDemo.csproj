@@ -224,6 +224,9 @@
     <Content Include="Images\Picture1.png" />
     <Content Include="Images\Picture2.png" />
     <None Include="Resources\Picture0.png" />
+    <None Include="Resources\Colebemis-Feather-Plus.512.png" />
+    <None Include="Resources\Amitjakhu-Drip-Minus.512.png" />
+    <Content Include="Images\Picture3.jpg" />
     <Content Include="Resources\TurnCoordinatorAircraft.bmp" />
     <None Include="Resources\Yusuke-Kamiyamane-Fugue-Plug-disconnect.16.png" />
     <None Include="Resources\minimizeIcon.png" />

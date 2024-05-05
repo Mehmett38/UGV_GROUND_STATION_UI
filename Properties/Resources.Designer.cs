@@ -63,6 +63,16 @@ namespace AvionicsInstrumentControlDemo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Amitjakhu_Drip_Minus_512 {
+            get {
+                object obj = ResourceManager.GetObject("Amitjakhu-Drip-Minus.512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Aniket_Suvarna_Box_Regular_Bx_reset_512 {
             get {
                 object obj = ResourceManager.GetObject("Aniket-Suvarna-Box-Regular-Bx-reset.512", resourceCulture);
@@ -76,6 +86,16 @@ namespace AvionicsInstrumentControlDemo.Properties {
         internal static System.Drawing.Bitmap closeIcon {
             get {
                 object obj = ResourceManager.GetObject("closeIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Colebemis_Feather_Plus_512 {
+            get {
+                object obj = ResourceManager.GetObject("Colebemis-Feather-Plus.512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

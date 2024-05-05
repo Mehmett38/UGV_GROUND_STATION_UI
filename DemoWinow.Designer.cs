@@ -35,27 +35,32 @@
             this.timerUpdate = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.panelUp = new System.Windows.Forms.Panel();
-            this.pictureBoxMinimize = new System.Windows.Forms.PictureBox();
-            this.pictureBoxScale = new System.Windows.Forms.PictureBox();
-            this.pictureBoxClose = new System.Windows.Forms.PictureBox();
-            this.airSpeedIndicatorInstrumentControl1 = new AvionicsInstrumentControlDemo.AirSpeedIndicatorInstrumentControl();
-            this.headingIndicatorInstrumentControl1 = new AvionicsInstrumentControlDemo.HeadingIndicatorInstrumentControl();
-            this.turnCoordinatorInstrumentControl1 = new AvionicsInstrumentControlDemo.TurnCoordinatorInstrumentControl();
-            this.attitudeIndicatorInstrumentControl1 = new AvionicsInstrumentControlDemo.AttitudeIndicatorInstrumentControl();
             this.gMapControl = new GMap.NET.WindowsForms.GMapControl();
             this.panel4 = new System.Windows.Forms.Panel();
             this.tabControlUgv = new System.Windows.Forms.TabControl();
             this.tabPageSerialPort = new System.Windows.Forms.TabPage();
             this.tabUgv = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBoxMinus = new System.Windows.Forms.PictureBox();
+            this.pictureBoxPlus = new System.Windows.Forms.PictureBox();
+            this.pictureBoxMinimize = new System.Windows.Forms.PictureBox();
+            this.pictureBoxScale = new System.Windows.Forms.PictureBox();
+            this.pictureBoxClose = new System.Windows.Forms.PictureBox();
+            this.labelPosition = new System.Windows.Forms.Label();
+            this.airSpeedIndicatorInstrumentControl1 = new AvionicsInstrumentControlDemo.AirSpeedIndicatorInstrumentControl();
+            this.headingIndicatorInstrumentControl1 = new AvionicsInstrumentControlDemo.HeadingIndicatorInstrumentControl();
+            this.turnCoordinatorInstrumentControl1 = new AvionicsInstrumentControlDemo.TurnCoordinatorInstrumentControl();
+            this.attitudeIndicatorInstrumentControl1 = new AvionicsInstrumentControlDemo.AttitudeIndicatorInstrumentControl();
             this.panel1.SuspendLayout();
             this.panelUp.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinimize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxScale)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             this.panel4.SuspendLayout();
             this.tabControlUgv.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinimize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxScale)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -111,88 +116,6 @@
             this.panelUp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mauseDownEvent);
             this.panelUp.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mauseMoveEvent);
             // 
-            // pictureBoxMinimize
-            // 
-            this.pictureBoxMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxMinimize.BackColor = System.Drawing.Color.Black;
-            this.pictureBoxMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxMinimize.Image")));
-            this.pictureBoxMinimize.Location = new System.Drawing.Point(1619, 4);
-            this.pictureBoxMinimize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBoxMinimize.Name = "pictureBoxMinimize";
-            this.pictureBoxMinimize.Size = new System.Drawing.Size(32, 32);
-            this.pictureBoxMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxMinimize.TabIndex = 5;
-            this.pictureBoxMinimize.TabStop = false;
-            this.pictureBoxMinimize.Click += new System.EventHandler(this.clickEvent);
-            this.pictureBoxMinimize.MouseLeave += new System.EventHandler(this.mauseLeaveEvent);
-            this.pictureBoxMinimize.MouseHover += new System.EventHandler(this.mauseHoverEvent);
-            // 
-            // pictureBoxScale
-            // 
-            this.pictureBoxScale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxScale.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxScale.Image")));
-            this.pictureBoxScale.Location = new System.Drawing.Point(1664, 2);
-            this.pictureBoxScale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBoxScale.Name = "pictureBoxScale";
-            this.pictureBoxScale.Size = new System.Drawing.Size(32, 32);
-            this.pictureBoxScale.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxScale.TabIndex = 5;
-            this.pictureBoxScale.TabStop = false;
-            this.pictureBoxScale.Click += new System.EventHandler(this.clickEvent);
-            this.pictureBoxScale.MouseLeave += new System.EventHandler(this.mauseLeaveEvent);
-            this.pictureBoxScale.MouseHover += new System.EventHandler(this.mauseHoverEvent);
-            // 
-            // pictureBoxClose
-            // 
-            this.pictureBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxClose.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxClose.Image")));
-            this.pictureBoxClose.Location = new System.Drawing.Point(1707, 2);
-            this.pictureBoxClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBoxClose.Name = "pictureBoxClose";
-            this.pictureBoxClose.Size = new System.Drawing.Size(32, 32);
-            this.pictureBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxClose.TabIndex = 5;
-            this.pictureBoxClose.TabStop = false;
-            this.pictureBoxClose.Click += new System.EventHandler(this.clickEvent);
-            this.pictureBoxClose.MouseLeave += new System.EventHandler(this.mauseLeaveEvent);
-            this.pictureBoxClose.MouseHover += new System.EventHandler(this.mauseHoverEvent);
-            // 
-            // airSpeedIndicatorInstrumentControl1
-            // 
-            this.airSpeedIndicatorInstrumentControl1.Location = new System.Drawing.Point(37, 774);
-            this.airSpeedIndicatorInstrumentControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.airSpeedIndicatorInstrumentControl1.Name = "airSpeedIndicatorInstrumentControl1";
-            this.airSpeedIndicatorInstrumentControl1.Size = new System.Drawing.Size(267, 255);
-            this.airSpeedIndicatorInstrumentControl1.TabIndex = 0;
-            this.airSpeedIndicatorInstrumentControl1.Text = "airSpeedIndicatorInstrumentControl1";
-            // 
-            // headingIndicatorInstrumentControl1
-            // 
-            this.headingIndicatorInstrumentControl1.Location = new System.Drawing.Point(37, 516);
-            this.headingIndicatorInstrumentControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.headingIndicatorInstrumentControl1.Name = "headingIndicatorInstrumentControl1";
-            this.headingIndicatorInstrumentControl1.Size = new System.Drawing.Size(267, 255);
-            this.headingIndicatorInstrumentControl1.TabIndex = 0;
-            this.headingIndicatorInstrumentControl1.Text = "headingIndicatorInstrumentControl1";
-            // 
-            // turnCoordinatorInstrumentControl1
-            // 
-            this.turnCoordinatorInstrumentControl1.Location = new System.Drawing.Point(37, 258);
-            this.turnCoordinatorInstrumentControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.turnCoordinatorInstrumentControl1.Name = "turnCoordinatorInstrumentControl1";
-            this.turnCoordinatorInstrumentControl1.Size = new System.Drawing.Size(267, 255);
-            this.turnCoordinatorInstrumentControl1.TabIndex = 6;
-            this.turnCoordinatorInstrumentControl1.Text = "turnCoordinatorInstrumentControl1";
-            // 
-            // attitudeIndicatorInstrumentControl1
-            // 
-            this.attitudeIndicatorInstrumentControl1.Location = new System.Drawing.Point(37, 0);
-            this.attitudeIndicatorInstrumentControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.attitudeIndicatorInstrumentControl1.Name = "attitudeIndicatorInstrumentControl1";
-            this.attitudeIndicatorInstrumentControl1.Size = new System.Drawing.Size(267, 255);
-            this.attitudeIndicatorInstrumentControl1.TabIndex = 6;
-            this.attitudeIndicatorInstrumentControl1.Text = "attitudeIndicatorInstrumentControl1";
-            // 
             // gMapControl
             // 
             this.gMapControl.Bearing = 0F;
@@ -219,6 +142,9 @@
             this.gMapControl.Size = new System.Drawing.Size(1418, 572);
             this.gMapControl.TabIndex = 0;
             this.gMapControl.Zoom = 0D;
+            this.gMapControl.OnMarkerClick += new GMap.NET.WindowsForms.MarkerClick(this.gMapControl_OnMarkerClick);
+            this.gMapControl.DoubleClick += new System.EventHandler(this.gMapControl_DoubleClick);
+            this.gMapControl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.gMapControl_MouseMove);
             // 
             // panel4
             // 
@@ -269,6 +195,9 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.panel3.Controls.Add(this.labelPosition);
+            this.panel3.Controls.Add(this.pictureBoxMinus);
+            this.panel3.Controls.Add(this.pictureBoxPlus);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Controls.Add(this.gMapControl);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -277,6 +206,133 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1418, 782);
             this.panel3.TabIndex = 6;
+            this.panel3.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.panel3.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
+            this.panel3.MouseHover += new System.EventHandler(this.pictureBox1_MouseHover);
+            // 
+            // pictureBoxMinus
+            // 
+            this.pictureBoxMinus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxMinus.BackColor = System.Drawing.Color.LightGray;
+            this.pictureBoxMinus.Image = global::AvionicsInstrumentControlDemo.Properties.Resources.Amitjakhu_Drip_Minus_512;
+            this.pictureBoxMinus.Location = new System.Drawing.Point(1321, 685);
+            this.pictureBoxMinus.Name = "pictureBoxMinus";
+            this.pictureBoxMinus.Size = new System.Drawing.Size(50, 50);
+            this.pictureBoxMinus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxMinus.TabIndex = 9;
+            this.pictureBoxMinus.TabStop = false;
+            this.pictureBoxMinus.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBoxMinus.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
+            this.pictureBoxMinus.MouseHover += new System.EventHandler(this.pictureBox1_MouseHover);
+            // 
+            // pictureBoxPlus
+            // 
+            this.pictureBoxPlus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxPlus.BackColor = System.Drawing.Color.LightGray;
+            this.pictureBoxPlus.Image = global::AvionicsInstrumentControlDemo.Properties.Resources.Colebemis_Feather_Plus_512;
+            this.pictureBoxPlus.Location = new System.Drawing.Point(1321, 624);
+            this.pictureBoxPlus.Name = "pictureBoxPlus";
+            this.pictureBoxPlus.Size = new System.Drawing.Size(50, 50);
+            this.pictureBoxPlus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxPlus.TabIndex = 9;
+            this.pictureBoxPlus.TabStop = false;
+            this.pictureBoxPlus.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBoxPlus.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
+            this.pictureBoxPlus.MouseHover += new System.EventHandler(this.pictureBox1_MouseHover);
+            // 
+            // pictureBoxMinimize
+            // 
+            this.pictureBoxMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxMinimize.BackColor = System.Drawing.Color.Black;
+            this.pictureBoxMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxMinimize.Image")));
+            this.pictureBoxMinimize.Location = new System.Drawing.Point(1619, 4);
+            this.pictureBoxMinimize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBoxMinimize.Name = "pictureBoxMinimize";
+            this.pictureBoxMinimize.Size = new System.Drawing.Size(32, 32);
+            this.pictureBoxMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxMinimize.TabIndex = 5;
+            this.pictureBoxMinimize.TabStop = false;
+            this.pictureBoxMinimize.Click += new System.EventHandler(this.clickEvent);
+            this.pictureBoxMinimize.MouseLeave += new System.EventHandler(this.mauseLeaveEvent);
+            this.pictureBoxMinimize.MouseHover += new System.EventHandler(this.mauseHoverEvent);
+            // 
+            // pictureBoxScale
+            // 
+            this.pictureBoxScale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxScale.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxScale.Image")));
+            this.pictureBoxScale.Location = new System.Drawing.Point(1664, 2);
+            this.pictureBoxScale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBoxScale.Name = "pictureBoxScale";
+            this.pictureBoxScale.Size = new System.Drawing.Size(32, 32);
+            this.pictureBoxScale.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxScale.TabIndex = 5;
+            this.pictureBoxScale.TabStop = false;
+            this.pictureBoxScale.Click += new System.EventHandler(this.clickEvent);
+            this.pictureBoxScale.MouseLeave += new System.EventHandler(this.mauseLeaveEvent);
+            this.pictureBoxScale.MouseHover += new System.EventHandler(this.mauseHoverEvent);
+            // 
+            // pictureBoxClose
+            // 
+            this.pictureBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxClose.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxClose.Image")));
+            this.pictureBoxClose.Location = new System.Drawing.Point(1707, 2);
+            this.pictureBoxClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBoxClose.Name = "pictureBoxClose";
+            this.pictureBoxClose.Size = new System.Drawing.Size(32, 32);
+            this.pictureBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxClose.TabIndex = 5;
+            this.pictureBoxClose.TabStop = false;
+            this.pictureBoxClose.Click += new System.EventHandler(this.clickEvent);
+            this.pictureBoxClose.MouseLeave += new System.EventHandler(this.mauseLeaveEvent);
+            this.pictureBoxClose.MouseHover += new System.EventHandler(this.mauseHoverEvent);
+            // 
+            // labelPosition
+            // 
+            this.labelPosition.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelPosition.AutoSize = true;
+            this.labelPosition.BackColor = System.Drawing.Color.White;
+            this.labelPosition.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.labelPosition.Location = new System.Drawing.Point(1132, 749);
+            this.labelPosition.Name = "labelPosition";
+            this.labelPosition.Size = new System.Drawing.Size(48, 22);
+            this.labelPosition.TabIndex = 10;
+            this.labelPosition.Text = "label2";
+            // 
+            // airSpeedIndicatorInstrumentControl1
+            // 
+            this.airSpeedIndicatorInstrumentControl1.Location = new System.Drawing.Point(37, 774);
+            this.airSpeedIndicatorInstrumentControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.airSpeedIndicatorInstrumentControl1.Name = "airSpeedIndicatorInstrumentControl1";
+            this.airSpeedIndicatorInstrumentControl1.Size = new System.Drawing.Size(267, 255);
+            this.airSpeedIndicatorInstrumentControl1.TabIndex = 0;
+            this.airSpeedIndicatorInstrumentControl1.Text = "airSpeedIndicatorInstrumentControl1";
+            // 
+            // headingIndicatorInstrumentControl1
+            // 
+            this.headingIndicatorInstrumentControl1.Location = new System.Drawing.Point(37, 516);
+            this.headingIndicatorInstrumentControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.headingIndicatorInstrumentControl1.Name = "headingIndicatorInstrumentControl1";
+            this.headingIndicatorInstrumentControl1.Size = new System.Drawing.Size(267, 255);
+            this.headingIndicatorInstrumentControl1.TabIndex = 0;
+            this.headingIndicatorInstrumentControl1.Text = "headingIndicatorInstrumentControl1";
+            // 
+            // turnCoordinatorInstrumentControl1
+            // 
+            this.turnCoordinatorInstrumentControl1.Location = new System.Drawing.Point(37, 258);
+            this.turnCoordinatorInstrumentControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.turnCoordinatorInstrumentControl1.Name = "turnCoordinatorInstrumentControl1";
+            this.turnCoordinatorInstrumentControl1.Size = new System.Drawing.Size(267, 255);
+            this.turnCoordinatorInstrumentControl1.TabIndex = 6;
+            this.turnCoordinatorInstrumentControl1.Text = "turnCoordinatorInstrumentControl1";
+            // 
+            // attitudeIndicatorInstrumentControl1
+            // 
+            this.attitudeIndicatorInstrumentControl1.Location = new System.Drawing.Point(37, 0);
+            this.attitudeIndicatorInstrumentControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.attitudeIndicatorInstrumentControl1.Name = "attitudeIndicatorInstrumentControl1";
+            this.attitudeIndicatorInstrumentControl1.Size = new System.Drawing.Size(267, 255);
+            this.attitudeIndicatorInstrumentControl1.TabIndex = 6;
+            this.attitudeIndicatorInstrumentControl1.Text = "attitudeIndicatorInstrumentControl1";
             // 
             // DemoWinow
             // 
@@ -295,12 +351,15 @@
             this.panel1.ResumeLayout(false);
             this.panelUp.ResumeLayout(false);
             this.panelUp.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinimize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxScale)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
             this.panel4.ResumeLayout(false);
             this.tabControlUgv.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinimize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxScale)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -325,6 +384,9 @@
         private System.Windows.Forms.TabPage tabUgv;
         private System.Windows.Forms.TabPage tabPageSerialPort;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.PictureBox pictureBoxPlus;
+        private System.Windows.Forms.PictureBox pictureBoxMinus;
+        private System.Windows.Forms.Label labelPosition;
     }
 }
 
