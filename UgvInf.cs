@@ -19,10 +19,12 @@ namespace AvionicsInstrumentControlDemo
         LedStates previousLedState = LedStates.LEDS_OFF;
         GpsState previousGpsState = GpsState.NO_CONNECTION;
         int previousSatelliteNumber = 0;
+        DemoWinow demWin;
 
-        public UgvInf()
+        public UgvInf(DemoWinow demoWindow)
         {
             InitializeComponent();
+            demWin = demoWindow;
         }
 
         public void formResize(int aPanelHeight, int aPanelWidth, bool firstInit = false)
@@ -113,6 +115,16 @@ namespace AvionicsInstrumentControlDemo
 
                 previousSatelliteNumber = satelliteNumber;
             }
+        }
+        private void roundPictureBoxReset_Click(object sender, EventArgs e)
+        {
+            demWin.resetPacketCounter();
+            labelPacketNum.Text = "Total Packet Number : 0";
+        }
+
+        public void updataPacketNum(int count)
+        {
+            labelPacketNum.Invoke(new Action(() => labelPacketNum.Text = ($"Total Packet Number : {count.ToString()}")));
         }
     }
 }

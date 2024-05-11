@@ -52,7 +52,7 @@ namespace AvionicsInstrumentControlDemo
 
             crc = new Crc();
             serialComForm = new SerialCom(this);
-            ugvInfForm = new UgvInf();
+            ugvInfForm = new UgvInf(this);
             serialPortUgv.ReadBufferSize = 8198;
             ugvDatasList = new Stack<UgvDatas>();
             timerUpdate.Start();
@@ -263,11 +263,12 @@ namespace AvionicsInstrumentControlDemo
             if (CircularBuffer.isDataReady())
             {
                 ugvDatasList.Push(CircularBuffer.getParsedDatas());
-                serialComForm.updataPacketNum(packetCounter++);
+                serialComForm.updataPacketNum(packetCounter);
+                ugvInfForm.updataPacketNum(packetCounter);
                 updateFlag = true;
+                serialPortUgv.DiscardInBuffer();
+                packetCounter++;
             }
-
-            serialPortUgv.DiscardInBuffer();
         }
 
         private void timerUpdate_Tick(object sender, EventArgs e)
@@ -292,7 +293,7 @@ namespace AvionicsInstrumentControlDemo
 
 
                     /*set the speed*/
-                    if (ugv.speed < 0.5f)
+                    if (ugv.speed < 1.5f)
                     {
                         ugv.speed = 0;
                     }

@@ -166,12 +166,6 @@ namespace AvionicsInstrumentControlDemo
             }
         }
 
-        private void roundPictureBox1_Click(object sender, EventArgs e)
-        {
-            demWin.resetPacketCounter();
-            labelPacketNum.Text = "Total Packet Number : 0";
-        }
-
         private void timerPortCheck_Tick(object sender, EventArgs e)
         {
             string[] scanPortNames = SerialPort.GetPortNames();
@@ -190,6 +184,12 @@ namespace AvionicsInstrumentControlDemo
                 portNumber = scanPortNames.Length;
                 comboBoxPortName.SelectedIndex = 0;
             }
+        }
+
+        private void roundPictureBoxReset_Click(object sender, EventArgs e)
+        {
+            demWin.resetPacketCounter();
+            labelPacketNum.Text = "Total Packet Number : 0";
         }
     }
 }

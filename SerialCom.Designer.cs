@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.roundPictureBoxReset = new AvionicsInstrumentControlDemo.RoundPictureBox();
             this.comboBoxPortName = new System.Windows.Forms.ComboBox();
             this.labelPacketNum = new System.Windows.Forms.Label();
             this.labelPortName = new System.Windows.Forms.Label();
@@ -44,16 +45,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.comboBoxBaudRate = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.roundPictureBox1 = new AvionicsInstrumentControlDemo.RoundPictureBox();
             this.timerPortCheck = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roundPictureBoxReset)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.roundPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.roundPictureBox1);
+            this.groupBox1.Controls.Add(this.roundPictureBoxReset);
             this.groupBox1.Controls.Add(this.comboBoxPortName);
             this.groupBox1.Controls.Add(this.labelPacketNum);
             this.groupBox1.Controls.Add(this.labelPortName);
@@ -64,6 +64,17 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Communication Channel";
+            // 
+            // roundPictureBoxReset
+            // 
+            this.roundPictureBoxReset.Image = global::AvionicsInstrumentControlDemo.Properties.Resources.reset1;
+            this.roundPictureBoxReset.Location = new System.Drawing.Point(369, 93);
+            this.roundPictureBoxReset.Name = "roundPictureBoxReset";
+            this.roundPictureBoxReset.Size = new System.Drawing.Size(33, 47);
+            this.roundPictureBoxReset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.roundPictureBoxReset.TabIndex = 1;
+            this.roundPictureBoxReset.TabStop = false;
+            this.roundPictureBoxReset.Click += new System.EventHandler(this.roundPictureBoxReset_Click);
             // 
             // comboBoxPortName
             // 
@@ -244,17 +255,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Baud Rate";
             // 
-            // roundPictureBox1
-            // 
-            this.roundPictureBox1.Image = global::AvionicsInstrumentControlDemo.Properties.Resources.reset1;
-            this.roundPictureBox1.Location = new System.Drawing.Point(369, 93);
-            this.roundPictureBox1.Name = "roundPictureBox1";
-            this.roundPictureBox1.Size = new System.Drawing.Size(33, 47);
-            this.roundPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.roundPictureBox1.TabIndex = 1;
-            this.roundPictureBox1.TabStop = false;
-            this.roundPictureBox1.Click += new System.EventHandler(this.roundPictureBox1_Click);
-            // 
             // timerPortCheck
             // 
             this.timerPortCheck.Tick += new System.EventHandler(this.timerPortCheck_Tick);
@@ -274,9 +274,9 @@
             this.Text = "serialCom";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roundPictureBoxReset)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.roundPictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -298,7 +298,7 @@
         private System.Windows.Forms.Button buttonConnect;
         private System.Windows.Forms.Button buttonDisconnect;
         private System.Windows.Forms.Label labelPacketNum;
-        private RoundPictureBox roundPictureBox1;
+        private RoundPictureBox roundPictureBoxReset;
         private System.Windows.Forms.Timer timerPortCheck;
     }
 }
