@@ -317,6 +317,14 @@ namespace AvionicsInstrumentControlDemo
                     ugvInfForm.updateSatelliteNumber(0);
                 }
 
+                /*set the gyro angles*/
+                ugv.kalmanX = ugv.kalmanX - 2.4f;   // offset 
+                ugv.kalmanY = ugv.kalmanY + 0.62f;   // offset
+                attitudeIndicatorInstrumentControl1.SetAttitudeIndicatorParameters((double)ugv.kalmanX, (double)ugv.kalmanY);
+
+                /*set the yatis*/
+                turnCoordinatorInstrumentControl1.SetTurnCoordinatorParameters((ugv.kalmanY / 10), 0);
+
                 updateFlag = false;
             }
         }

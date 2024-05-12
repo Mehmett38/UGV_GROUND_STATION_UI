@@ -12,8 +12,8 @@ namespace AvionicsInstrumentControlDemo
     static public class CircularBuffer
     {
         static Crc crc = new Crc();
-        private static int bufferSize = 256;
-        private static int dataLenght = 25;
+        private static int bufferSize = 512;
+        private static int dataLenght = 52;
         private static byte[] buffer = new byte[bufferSize];
         private static int head;
         private static int tail;
@@ -80,7 +80,7 @@ namespace AvionicsInstrumentControlDemo
 
             for(int i = 0; i < dataLenght; i++)
             {
-                index = (tailIndex - 24 + i) % bufferSize;
+                index = (tailIndex - 51 + i) % bufferSize;
 
                 if(index < 0)
                 {
@@ -94,8 +94,8 @@ namespace AvionicsInstrumentControlDemo
 
             tail = head;
 
-            ushort crcVal = (ushort)((tempBuffer[21] << 0) | (tempBuffer[22] << 8));
-            ushort calculatedCrc = crc.AE_PEC15(tempBuffer, 21);
+            ushort crcVal = (ushort)((tempBuffer[48] << 0) | (tempBuffer[49] << 8));
+            ushort calculatedCrc = crc.AE_PEC15(tempBuffer, 48);
             if (crcVal == calculatedCrc)
             {
                 dataBuffer = tempBuffer;
@@ -118,17 +118,39 @@ namespace AvionicsInstrumentControlDemo
 
             ugvDatas.longitudeDegree = dataBuffer[8];
             ugvDatas.longitudeMinute = dataBuffer[9];
+            ugvDatas.numberOfSatellite = dataBuffer[10];
+            ugvDatas.second = dataBuffer[11];
 
-            u8Tou32 = (dataBuffer[10] << 0) | (dataBuffer[11] << 8) | (dataBuffer[12] << 16) | (dataBuffer[13] << 24);
+            u8Tou32 = (dataBuffer[12] << 0) | (dataBuffer[13] << 8) | (dataBuffer[14] << 16) | (dataBuffer[15] << 24);
             ugvDatas.longitudeSecond = hexToFloat(u8Tou32);
 
-            ugvDatas.numberOfSatellite = dataBuffer[14];
-
-            u8Tou32 = (dataBuffer[15] << 0) | (dataBuffer[16] << 8) | (dataBuffer[17] << 16) | (dataBuffer[18] << 24);
+            u8Tou32 = (dataBuffer[16] << 0) | (dataBuffer[17] << 8) | (dataBuffer[18] << 16) | (dataBuffer[19] << 24);
             ugvDatas.speed = hexToFloat(u8Tou32);
 
-            ugvDatas.ledState = (LedStates)dataBuffer[19];
-            ugvDatas.gpsState = (GpsState)dataBuffer[20];
+            u8Tou32 = (dataBuffer[20] << 0) | (dataBuffer[21] << 8) | (dataBuffer[22] << 16) | (dataBuffer[23] << 24);
+            ugvDatas.aX = hexToFloat(u8Tou32);
+
+            u8Tou32 = (dataBuffer[24] << 0) | (dataBuffer[25] << 8) | (dataBuffer[26] << 16) | (dataBuffer[27] << 24);
+            ugvDatas.aY = hexToFloat(u8Tou32);
+
+            u8Tou32 = (dataBuffer[28] << 0) | (dataBuffer[29] << 8) | (dataBuffer[30] << 16) | (dataBuffer[31] << 24);
+            ugvDatas.temperature = hexToFloat(u8Tou32);
+
+            u8Tou32 = (dataBuffer[32] << 0) | (dataBuffer[33] << 8) | (dataBuffer[34] << 16) | (dataBuffer[35] << 24);
+            ugvDatas.kalmanX = hexToFloat(u8Tou32);
+
+            u8Tou32 = (dataBuffer[36] << 0) | (dataBuffer[37] << 8) | (dataBuffer[38] << 16) | (dataBuffer[39] << 24);
+            ugvDatas.kalmanY = hexToFloat(u8Tou32);
+
+            ugvDatas.minute = dataBuffer[40];
+            ugvDatas.hour = dataBuffer[41];
+            ugvDatas.day = dataBuffer[42];
+            ugvDatas.month = dataBuffer[43];
+
+            ugvDatas.locationLat = (Location)dataBuffer[44];
+            ugvDatas.locationLong = (Location)dataBuffer[45];
+            ugvDatas.ledState = (LedStates)dataBuffer[46];
+            ugvDatas.gpsState = (GpsState)dataBuffer[47];
 
             return ugvDatas;
         }
