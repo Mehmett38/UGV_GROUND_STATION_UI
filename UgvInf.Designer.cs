@@ -72,7 +72,7 @@
             // 
             this.labelPacketNum.AutoSize = true;
             this.labelPacketNum.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.labelPacketNum.Location = new System.Drawing.Point(409, 85);
+            this.labelPacketNum.Location = new System.Drawing.Point(391, 84);
             this.labelPacketNum.Name = "labelPacketNum";
             this.labelPacketNum.Size = new System.Drawing.Size(182, 19);
             this.labelPacketNum.TabIndex = 4;

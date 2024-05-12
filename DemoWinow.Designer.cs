@@ -31,6 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DemoWinow));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.airSpeedIndicatorInstrumentControl1 = new AvionicsInstrumentControlDemo.AirSpeedIndicatorInstrumentControl();
+            this.headingIndicatorInstrumentControl1 = new AvionicsInstrumentControlDemo.HeadingIndicatorInstrumentControl();
+            this.turnCoordinatorInstrumentControl1 = new AvionicsInstrumentControlDemo.TurnCoordinatorInstrumentControl();
+            this.attitudeIndicatorInstrumentControl1 = new AvionicsInstrumentControlDemo.AttitudeIndicatorInstrumentControl();
             this.serialPortUgv = new System.IO.Ports.SerialPort(this.components);
             this.timerUpdate = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
@@ -47,10 +51,6 @@
             this.labelPosition = new System.Windows.Forms.Label();
             this.pictureBoxMinus = new System.Windows.Forms.PictureBox();
             this.pictureBoxPlus = new System.Windows.Forms.PictureBox();
-            this.airSpeedIndicatorInstrumentControl1 = new AvionicsInstrumentControlDemo.AirSpeedIndicatorInstrumentControl();
-            this.headingIndicatorInstrumentControl1 = new AvionicsInstrumentControlDemo.HeadingIndicatorInstrumentControl();
-            this.turnCoordinatorInstrumentControl1 = new AvionicsInstrumentControlDemo.TurnCoordinatorInstrumentControl();
-            this.attitudeIndicatorInstrumentControl1 = new AvionicsInstrumentControlDemo.AttitudeIndicatorInstrumentControl();
             this.panel1.SuspendLayout();
             this.panelUp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinimize)).BeginInit();
@@ -76,6 +76,42 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(325, 782);
             this.panel1.TabIndex = 4;
+            // 
+            // airSpeedIndicatorInstrumentControl1
+            // 
+            this.airSpeedIndicatorInstrumentControl1.Location = new System.Drawing.Point(37, 774);
+            this.airSpeedIndicatorInstrumentControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.airSpeedIndicatorInstrumentControl1.Name = "airSpeedIndicatorInstrumentControl1";
+            this.airSpeedIndicatorInstrumentControl1.Size = new System.Drawing.Size(267, 255);
+            this.airSpeedIndicatorInstrumentControl1.TabIndex = 0;
+            this.airSpeedIndicatorInstrumentControl1.Text = "airSpeedIndicatorInstrumentControl1";
+            // 
+            // headingIndicatorInstrumentControl1
+            // 
+            this.headingIndicatorInstrumentControl1.Location = new System.Drawing.Point(37, 516);
+            this.headingIndicatorInstrumentControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.headingIndicatorInstrumentControl1.Name = "headingIndicatorInstrumentControl1";
+            this.headingIndicatorInstrumentControl1.Size = new System.Drawing.Size(267, 255);
+            this.headingIndicatorInstrumentControl1.TabIndex = 0;
+            this.headingIndicatorInstrumentControl1.Text = "headingIndicatorInstrumentControl1";
+            // 
+            // turnCoordinatorInstrumentControl1
+            // 
+            this.turnCoordinatorInstrumentControl1.Location = new System.Drawing.Point(37, 258);
+            this.turnCoordinatorInstrumentControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.turnCoordinatorInstrumentControl1.Name = "turnCoordinatorInstrumentControl1";
+            this.turnCoordinatorInstrumentControl1.Size = new System.Drawing.Size(267, 255);
+            this.turnCoordinatorInstrumentControl1.TabIndex = 6;
+            this.turnCoordinatorInstrumentControl1.Text = "turnCoordinatorInstrumentControl1";
+            // 
+            // attitudeIndicatorInstrumentControl1
+            // 
+            this.attitudeIndicatorInstrumentControl1.Location = new System.Drawing.Point(37, 0);
+            this.attitudeIndicatorInstrumentControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.attitudeIndicatorInstrumentControl1.Name = "attitudeIndicatorInstrumentControl1";
+            this.attitudeIndicatorInstrumentControl1.Size = new System.Drawing.Size(267, 255);
+            this.attitudeIndicatorInstrumentControl1.TabIndex = 6;
+            this.attitudeIndicatorInstrumentControl1.Text = "attitudeIndicatorInstrumentControl1";
             // 
             // serialPortUgv
             // 
@@ -297,42 +333,6 @@
             this.pictureBoxPlus.Click += new System.EventHandler(this.pictureBox1_Click);
             this.pictureBoxPlus.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
             this.pictureBoxPlus.MouseHover += new System.EventHandler(this.pictureBox1_MouseHover);
-            // 
-            // airSpeedIndicatorInstrumentControl1
-            // 
-            this.airSpeedIndicatorInstrumentControl1.Location = new System.Drawing.Point(37, 774);
-            this.airSpeedIndicatorInstrumentControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.airSpeedIndicatorInstrumentControl1.Name = "airSpeedIndicatorInstrumentControl1";
-            this.airSpeedIndicatorInstrumentControl1.Size = new System.Drawing.Size(267, 255);
-            this.airSpeedIndicatorInstrumentControl1.TabIndex = 0;
-            this.airSpeedIndicatorInstrumentControl1.Text = "airSpeedIndicatorInstrumentControl1";
-            // 
-            // headingIndicatorInstrumentControl1
-            // 
-            this.headingIndicatorInstrumentControl1.Location = new System.Drawing.Point(37, 516);
-            this.headingIndicatorInstrumentControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.headingIndicatorInstrumentControl1.Name = "headingIndicatorInstrumentControl1";
-            this.headingIndicatorInstrumentControl1.Size = new System.Drawing.Size(267, 255);
-            this.headingIndicatorInstrumentControl1.TabIndex = 0;
-            this.headingIndicatorInstrumentControl1.Text = "headingIndicatorInstrumentControl1";
-            // 
-            // turnCoordinatorInstrumentControl1
-            // 
-            this.turnCoordinatorInstrumentControl1.Location = new System.Drawing.Point(37, 258);
-            this.turnCoordinatorInstrumentControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.turnCoordinatorInstrumentControl1.Name = "turnCoordinatorInstrumentControl1";
-            this.turnCoordinatorInstrumentControl1.Size = new System.Drawing.Size(267, 255);
-            this.turnCoordinatorInstrumentControl1.TabIndex = 6;
-            this.turnCoordinatorInstrumentControl1.Text = "turnCoordinatorInstrumentControl1";
-            // 
-            // attitudeIndicatorInstrumentControl1
-            // 
-            this.attitudeIndicatorInstrumentControl1.Location = new System.Drawing.Point(37, 0);
-            this.attitudeIndicatorInstrumentControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.attitudeIndicatorInstrumentControl1.Name = "attitudeIndicatorInstrumentControl1";
-            this.attitudeIndicatorInstrumentControl1.Size = new System.Drawing.Size(267, 255);
-            this.attitudeIndicatorInstrumentControl1.TabIndex = 6;
-            this.attitudeIndicatorInstrumentControl1.Text = "attitudeIndicatorInstrumentControl1";
             // 
             // DemoWinow
             // 
