@@ -51,6 +51,7 @@
             this.labelPosition = new System.Windows.Forms.Label();
             this.pictureBoxMinus = new System.Windows.Forms.PictureBox();
             this.pictureBoxPlus = new System.Windows.Forms.PictureBox();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.panel1.SuspendLayout();
             this.panelUp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinimize)).BeginInit();
@@ -277,6 +278,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.panel3.Controls.Add(this.webBrowser1);
             this.panel3.Controls.Add(this.labelPosition);
             this.panel3.Controls.Add(this.pictureBoxMinus);
             this.panel3.Controls.Add(this.pictureBoxPlus);
@@ -334,6 +336,15 @@
             this.pictureBoxPlus.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
             this.pictureBoxPlus.MouseHover += new System.EventHandler(this.pictureBox1_MouseHover);
             // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(650, 210);
+            this.webBrowser1.TabIndex = 11;
+            // 
             // DemoWinow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -387,6 +398,7 @@
         private System.Windows.Forms.PictureBox pictureBoxPlus;
         private System.Windows.Forms.PictureBox pictureBoxMinus;
         private System.Windows.Forms.Label labelPosition;
+        private System.Windows.Forms.WebBrowser webBrowser1;
     }
 }
 

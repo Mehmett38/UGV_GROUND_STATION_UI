@@ -68,6 +68,9 @@ namespace AvionicsInstrumentControlDemo
             tabUgv.Controls.Add(ugvInfForm);
             ugvInfForm.Show();
             ugvInfForm.formResize(tabControlUgv.Height, tabControlUgv.Width, true);
+
+            webBrowser1.Refresh();  
+            webBrowser1.Navigate(@"https://www.google.com.tr/?hl=tr");
         }
 
         private void gmapSetting()
